@@ -1,0 +1,59 @@
+body {
+  margin: 0;
+  font-family: 'Optima Pro', sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: black;
+  color: white;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+#bg-video {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.bg-animation {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+
+.video-background {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+  animation: float 30s linear infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+/* Just styling the content of the div, the *magic* in the previous rules */
+.bg-animation .caption {
+  z-index: 1;
+  position: relative;
+}

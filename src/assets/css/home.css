@@ -1,0 +1,8 @@
+
+@media (max-width: 768px) {
+  .images img {
+    width: 50% !important;
+    margin-top: 30px !important;
+    margin-left: 30px !important;
+  }
+}
