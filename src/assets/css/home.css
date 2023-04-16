@@ -1,8 +1,73 @@
+.title h5 {
+  font-size: 20px;
+}
+
+.title p {
+  font-size: 15px;
+}
+
+.center-col {
+  min-width: 480px;
+}
+
+
+.images img {
+  opacity: 0.9 !important;
+}
+.images img:hover {
+  opacity: 1 !important;
+  cursor: pointer;
+}
+
+.title {
+  animation: move 10s linear infinite;
+}
+
+#bg-video {
+  animation: movevideo 4s linear infinite;
+}
+
+.title:hover {
+  animation-play-state: paused;
+}
+
 
 @media (max-width: 768px) {
   .images img {
     width: 50% !important;
     margin-top: 30px !important;
     margin-left: 30px !important;
+  }
+
+  .center-col {
+    min-width: auto;
+  }
+  .title h5 {
+    font-size: 15px;
+  }
+  
+  .title p {
+    font-size: 10px;
+  }
+
+}
+
+@keyframes move {
+  from {
+    transform: translateY(110%);
+  }
+
+  to {
+    transform: translateY(-150%);
+  }
+}
+
+@keyframes movevideo {
+  from {
+    transform: translateY(100%);
+  }
+
+  to {
+    transform: translateY(0%);
   }
 }

@@ -7,6 +7,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: black;
   color: white;
+  overflow-x: hidden;
 }
 
 code {
@@ -14,46 +15,79 @@ code {
     monospace;
 }
 
-
-#bg-video {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  min-width: 100%;
-  min-height: 100%;
-  z-index: -1;
-  background-size: cover;
-  background-attachment: fixed;
+.cursor-pointer {
+  cursor: pointer;
 }
 
-.bg-animation {
-  position: relative;
-  height: 100vh;
-  overflow: hidden;
+/* Contact page */
+
+.contactpage .content p {
+  font-size: 20px;
+}
+
+/* Video page */
+.title-video-md h1 {
+  position: static;
+}
+
+.title-video-md h4 {
+  font-size: 15px;
+  bottom: 5%;
+  right: 5%;
 }
 
 
-.video-background {
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  min-width: 100%;
-  min-height: 100%;
-  z-index: -1;
-  animation: float 30s linear infinite;
+/* Project page */
+
+.carousel-control-next-icon {
+  background-image: url(./assets/Icons/Play\ Right.png);
 }
 
-@keyframes float {
-  0% {
-    transform: translateY(0);
+.carousel-control-prev-icon {
+  background-image: url(./assets/Icons/Play\ Left.png);
+}
+
+.carousel-control-next {
+  right: -15%;
+}
+
+.carousel-control-prev {
+  left: -15%;
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+  opacity: 1 !important;
+}
+
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+  width: 60px !important;
+  height: 60px !important;
+}
+
+#exit-video {
+  right: 0%;
+  top: 40%;
+}
+
+@media (min-width: 768px) {
+  #exit-video {
+    right: 7%;
+    top: 60%;
   }
-  100% {
-    transform: translateY(-100%);
-  }
-}
 
-/* Just styling the content of the div, the *magic* in the previous rules */
-.bg-animation .caption {
-  z-index: 1;
-  position: relative;
+  .contactpage .content p {
+    font-size: 20px;
+  }
+
+  .title-video-md h1 {
+    position: absolute;
+  }
+
+  .title-video-md h4 {
+    font-size: 25px;
+    right: 5%;
+    bottom: 12%;
+  }
 }

@@ -17,13 +17,9 @@ const homedata = {
     { title: "TBD Distillery", contents: "why we make whiskey" },
   ],
   assistant: [
-    { title: "Ciscero", contents: "function" },
-    { title: "Def Jam", contents: "i am beau young prince" },
-    { title: "Lady Oflo", contents: "jealous" },
-    { title: "Beau Young Prince", contents: "kill moe" },
-    { title: "Obioma", contents: "spring ‘17" },
-    { title: "Nwar Club", contents: "everybody drinks wine" },
-    { title: "TBD Distillery", contents: "why we make whiskey" },
+    { title: "Fight Camp", contents: "this is fight camp" },
+    { title: "Prada", contents: "spring / summer ‘19" },
+    { title: "J. ember", contents: "bargain flights" },
   ],
   images_l: [
     { path: img1, id: 1 },
@@ -38,7 +34,7 @@ const homedata = {
 
 const Titlesection = ({ Items }) => (
   Items.map((item) => (
-    <div key={item.title} className="d-flex row fkex-md-flex align-items-center justify-content-center">
+    <div key={item.title} className="d-flex row  fkex-md-flex align-items-center justify-content-center">
       <div className="col-6 text-end">
         <h5 className="fw-bold d-flex justify-content-end m-0 p-0 align-items-center">{item.title}</h5>
       </div>
@@ -49,10 +45,12 @@ const Titlesection = ({ Items }) => (
   ))
 );
 
-const Imagesection = ({ Items }) => (
+const Imagesection = ({ Items, pos }) => (
   Items.map((item) => (
-    <div className={item.id % 2 == 0 ? "d-flex justify-content-start justify-content-md-center" : "d-flex justify-content-end justify-content-md-center"} key={item.id}>
-      <img src={item.path} alt="" className="w-75 m-2" />
+    <div className={item.id % 2 == 0 ? " d-flex justify-content-start justify-content-md-center" : "d-flex justify-content-end justify-content-md-center"} key={item.id}>
+      <a href="/videos">
+        <img src={item.path} alt="" className="w-75 m-2" data-aos-duration="2000" data-aos={item.id % 2 == 0 ? "fade-right" : "fade-left"} />
+      </a>
     </div>
   ))
 );
@@ -61,17 +59,20 @@ const Imagesection = ({ Items }) => (
 function Homepage() {
   return (
     <div className="d-md-flex align-items-center justify-content-center">
-      <div className="text-center " style={{ minWidth: 480 }}>
-        <h3 className="py-4">Producer</h3>
-        <Titlesection Items={homedata.producer} />
-        <h3 className="py-4">Assistant</h3>
-        <Titlesection Items={homedata.assistant} />
+      <div className="center-col">
+        <div className="d-md-block w-100 text-center title">
+          <h3 className="py-4">Producer</h3>
+          <Titlesection Items={homedata.producer} />
+          <h3 className="py-4">Assistant</h3>
+          <Titlesection Items={homedata.assistant} />
+        </div>
+
       </div>
       <div className="images d-flex flex-column order-md-first ">
-        <Imagesection Items={homedata.images_l} />
+        <Imagesection Items={homedata.images_l} pos="left" />
       </div>
       <div className="images d-flex flex-column">
-        <Imagesection Items={homedata.images_r} />
+        <Imagesection Items={homedata.images_r} pos="right" />
       </div>
     </div>
   );
