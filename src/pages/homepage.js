@@ -48,8 +48,8 @@ const Titlesection = ({ Items }) => (
 const Imagesection = ({ Items, pos }) => (
   Items.map((item) => (
     <div className={item.id % 2 == 0 ? " d-flex justify-content-start justify-content-md-center" : "d-flex justify-content-end justify-content-md-center"} key={item.id}>
-      <a href="/videos">
-        <img src={item.path} alt="" className="w-75 m-2" data-aos-duration="2000" data-aos={item.id % 2 == 0 ? "fade-right" : "fade-left"} />
+      <a href="/videos " className="w-75 m-2"  data-aos-duration="2000" data-aos={item.id % 2 == 0 ? "fade-right" : "fade-left"}>
+        <img src={item.path} alt="" className="w-100" />
       </a>
     </div>
   ))

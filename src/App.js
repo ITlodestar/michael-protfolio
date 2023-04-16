@@ -11,7 +11,7 @@ import {
 function App() {
   useEffect(() => {
     if (window.location.pathname == '/') {
-      document.body.classList.add('overflow-hidden')
+      document.body.classList.add('overflow-hidden-home')
     }
   }, [])
 
@@ -29,7 +29,6 @@ function App() {
           muted
           loop
           id='bg-video'
-          
           className=''>
           <source src="/Balloon.mp4" type="video/mp4" />
         </video>

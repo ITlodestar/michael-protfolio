@@ -72,6 +72,7 @@ code {
 }
 
 @media (min-width: 768px) {
+  
   #exit-video {
     right: 7%;
     top: 60%;
@@ -90,4 +91,17 @@ code {
     right: 5%;
     bottom: 12%;
   }
+}
+
+@keyframes movevideo {
+  from {
+    transform: translateY(100%);
+  }
+
+  to {
+    transform: translateY(0%);
+  }
+}
+#bg-video {
+  animation: movevideo 5s linear infinite;
 }

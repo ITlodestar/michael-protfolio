@@ -39,8 +39,10 @@ function Videopage() {
             <div className={item.first ? "me-0 w-100 my-2 position-relative" : "me-5 w-100 my-2 position-relative"}>
               <h1 className="" style={{ left: `10%`, bottom: `15%` }}>{item.author} <br /> {item.title} </h1>
               <h4 className="position-absolute" >{item.s_author} <br />{item.s_contents}</h4>
-              <Image className="position-absolute top-50 start-50 translate-middle" style={{ width: 55, height: 50 }} src={playIcon} alt="play icon..." />
-              <Image src={item.path} className="rounded-3 w-100"/>
+              <a href="#">
+                <Image className="position-absolute top-50 start-50 translate-middle" style={{ width: 55, height: 50 }} src={playIcon} alt="play icon..." />
+              </a>
+              <Image src={item.path} className="rounded-3 w-100" />
             </div>
           </div>
         ))

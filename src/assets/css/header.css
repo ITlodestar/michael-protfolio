@@ -9,9 +9,13 @@ header h1 {
 
 header a:hover {
   color: white;
-  text-decoration:underline !important;
+  text-decoration: underline !important;
 }
+
 @media (min-width: 768px) {
+  .overflow-hidden-home {
+    overflow: hidden;
+  }
 
   .item {
     padding-left: 20px;
