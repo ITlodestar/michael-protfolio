@@ -37,8 +37,8 @@ function Videopage() {
         images.video.map((item) => (
           <div data-aos="fade-right" data-aos-duration="5000" className="d-flex align-items-center title-video-md" key={item.path} >
             <div className={item.first ? "me-0 w-100 my-2 position-relative" : "me-5 w-100 my-2 position-relative"}>
-              <h1 className="" style={{ left: `10%`, bottom: `15%` }}>{item.author} <br /> {item.title} </h1>
-              <h4 className="position-absolute" >{item.s_author} <br />{item.s_contents}</h4>
+              <h1 className="" data-aos-duration="2000" data-aos="fade-up" style={{ left: `10%`, bottom: `15%` }}>{item.author} <br /> {item.title} </h1>
+              <h4 className="position-absolute" data-aos-duration="2000" data-aos="fade-down" >{item.s_author} <br />{item.s_contents}</h4>
               <a href="#">
                 <Image className="position-absolute top-50 start-50 translate-middle" style={{ width: 55, height: 50 }} src={playIcon} alt="play icon..." />
               </a>

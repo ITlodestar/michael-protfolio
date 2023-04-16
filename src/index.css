@@ -94,11 +94,14 @@ code {
 }
 
 @keyframes movevideo {
-  from {
+  0% {
     transform: translateY(100%);
   }
 
-  to {
+  20% {
+    transform: translateY(98%);
+  }
+  100% {
     transform: translateY(0%);
   }
 }
