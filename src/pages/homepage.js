@@ -1,4 +1,6 @@
 import React from "react";
+import { useState } from "react";
+
 import img1 from '../assets/img/Landing Page/Prada Spring_Summer _Thumbnail.jpg';
 import img2 from '../assets/img/Landing Page/j ember - Bargain Flights_Thumbnail.jpg';
 import img3 from '../assets/img/Landing Page/This is FightCamp_Thumbnail.jpg';
@@ -6,20 +8,22 @@ import img4 from '../assets/img/Landing Page/BYP_I AM BYP_Thumbnail.jpg';
 import img5 from '../assets/img/Landing Page/Jealous Thumbnail.jpg';
 import '../assets/css/home.css';
 
+
+import video1 from '../assets/video/BYP_I AM BYP_Compressed.mp4';
 const homedata = {
   producer: [
-    { title: "Ciscero", contents: "function" },
-    { title: "Def Jam", contents: "i am beau young prince" },
-    { title: "Lady Oflo", contents: "jealous" },
-    { title: "Beau Young Prince", contents: "kill moe" },
-    { title: "Obioma", contents: "spring ‘17" },
-    { title: "Nwar Club", contents: "everybody drinks wine" },
-    { title: "TBD Distillery", contents: "why we make whiskey" },
+    { title: "Ciscero", contents: "function", link: "https://www.youtube.com/watch?v=OXe66eyFdoc" },
+    { title: "Def Jam", contents: "i am beau young prince", link:"https://www.youtube.com/watch?v=V-RCCp7Fljs" },
+    { title: "Lady Oflo", contents: "jealous", link: "https://vimeo.com/321125295" },
+    { title: "Beau Young Prince", contents: "kill moe", link: "https://www.youtube.com/watch?v=KSn9kYluxOw" },
+    { title: "Obioma", contents: "spring ‘17" , link: "https://vimeo.com/221483710"},
+    { title: "Nwar Club", contents: "everybody drinks wine" , link: " https://vimeo.com/284630098"},
+    { title: "TBD Distillery", contents: "why we make whiskey", link: "https://www.youtube.com/watch?v=HhxzCrkPwE8&t=4s" },
   ],
   assistant: [
-    { title: "Fight Camp", contents: "this is fight camp" },
-    { title: "Prada", contents: "spring / summer ‘19" },
-    { title: "J. ember", contents: "bargain flights" },
+    { title: "Fight Camp", contents: "this is fight camp", link: "https://www.youtube.com/watch?v=zu1wq8IjAIc" },
+    { title: "Prada", contents: "spring / summer ‘19" , link: "https://vimeo.com/337688483"},
+    { title: "J. ember", contents: "bargain flights" , link: "https://www.youtube.com/watch?v=YZ46fS1OxPU"},
   ],
   images_l: [
     { path: img1, id: 1 },
@@ -32,11 +36,14 @@ const homedata = {
   ]
 }
 
+
 const Titlesection = ({ Items }) => (
   Items.map((item) => (
     <div key={item.title} className="d-flex row  fkex-md-flex align-items-center justify-content-center">
       <div className="col-6 text-end">
-        <h5 className="fw-bold d-flex justify-content-end m-0 p-0 align-items-center">{item.title}</h5>
+        <a href={item.link} className="text-decoration-none video-title-left text-light ">
+          <h5 className="fw-bold d-flex justify-content-end   m-0 p-0 align-items-center">{item.title}</h5>
+        </a>
       </div>
       <div className="col-6 text-start">
         <p className="text-uppercase d-flex m-0 p-0 align-items-center fw-light ps-2"> {item.contents} </p>
@@ -45,18 +52,29 @@ const Titlesection = ({ Items }) => (
   ))
 );
 
-const Imagesection = ({ Items, pos }) => (
-  Items.map((item) => (
+const Imagesection = ({ Items, setPreview, preview }) => {
+  console.log(preview);
+  return Items.map((item) => (
     <div className={item.id % 2 == 0 ? " d-flex justify-content-start justify-content-md-center" : "d-flex justify-content-end justify-content-md-center"} key={item.id}>
-      <a href="/videos " className="w-75 m-2"  data-aos-duration="2000" data-aos={item.id % 2 == 0 ? "fade-right" : "fade-left"}>
+      <a href="/videos " className="w-75 m-2" data-aos-duration="2000" data-aos={item.id % 2 == 0 ? "fade-right" : "fade-left"}>
+        {/* {item.id === preview ?
+          <video
+            autoPlay
+            muted
+            loop
+            className=''>
+            <source src={video1} type="video/mp4" />
+          </video> : */}
         <img src={item.path} alt="" className="w-100" />
+        {/* } */}
       </a>
     </div>
   ))
-);
+};
 
 
 function Homepage() {
+  const [preview, setPreview] = useState(0);
   return (
     <div className="d-md-flex align-items-center justify-content-center">
       <div className="center-col">
@@ -69,10 +87,10 @@ function Homepage() {
 
       </div>
       <div className="images d-flex flex-column order-md-first ">
-        <Imagesection Items={homedata.images_l} pos="left" />
+        <Imagesection Items={homedata.images_l} setPreview={setPreview} preview={preview} />
       </div>
       <div className="images d-flex flex-column">
-        <Imagesection Items={homedata.images_r} pos="right" />
+        <Imagesection Items={homedata.images_r} setPreview={setPreview} preview={preview} />
       </div>
     </div>
   );

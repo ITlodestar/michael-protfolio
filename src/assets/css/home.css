@@ -28,7 +28,9 @@
   animation-play-state: paused;
 }
 
-
+.video-title-left:hover {
+  text-decoration-line: underline !important;
+}
 @media (max-width: 768px) {
   .images img {
     width: 80% !important;

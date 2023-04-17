@@ -57,7 +57,7 @@ const Projectpage = () => {
       <div
         className={changeBtn == 0 ? "d-none" : "m-auto"}
         style={{ maxWidth: 380 }}>
-        <Carouselphoto images={image.source} />
+        <Carouselphoto images={image.source} playicon={playicon} previewicon={previewicon}/>
       </div>
     </div>
   )
