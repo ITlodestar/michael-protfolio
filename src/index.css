@@ -19,6 +19,7 @@ code {
   cursor: pointer;
 }
 
+
 /* Contact page */
 
 .contactpage .content p {
@@ -71,8 +72,14 @@ code {
   top: 40%;
 }
 
+.start-50-100 {
+  bottom: 0;
+  left: 50%;
+}
 @media (min-width: 768px) {
-  
+  .start-50-100 {
+    left: 100%;
+  }
   #exit-video {
     right: 7%;
     top: 60%;
@@ -95,11 +102,11 @@ code {
 
 @keyframes movevideo {
   0% {
-    transform: translateY(100%);
+    transform: translateY(90%);
   }
 
   20% {
-    transform: translateY(98%);
+    transform: translateY(87%);
   }
   100% {
     transform: translateY(0%);

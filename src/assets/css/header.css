@@ -12,6 +12,9 @@ header a:hover {
   text-decoration: underline !important;
 }
 
+#ballon {
+  cursor: pointer;
+}
 @media (min-width: 768px) {
   .overflow-hidden-home {
     overflow: hidden;

@@ -9,30 +9,35 @@ import img5 from '../assets/img/Landing Page/Jealous Thumbnail.jpg';
 import '../assets/css/home.css';
 
 
-import video1 from '../assets/video/BYP_I AM BYP_Compressed.mp4';
+import video1 from '../assets/video/Prada Spring_Compressed.mp4';
+import video2 from '../assets/video/j ember _Bargain Flights_Compressed.mp4';
+import video3 from '../assets/video/This is FightCamp _Compressed.mp4';
+import video4 from '../assets/video/BYP_I AM BYP_Compressed.mp4';
+import video5 from '../assets/video/Jealous - Final ProRes.mp4';
+
 const homedata = {
   producer: [
     { title: "Ciscero", contents: "function", link: "https://www.youtube.com/watch?v=OXe66eyFdoc" },
-    { title: "Def Jam", contents: "i am beau young prince", link:"https://www.youtube.com/watch?v=V-RCCp7Fljs" },
+    { title: "Def Jam", contents: "i am beau young prince", link: "https://www.youtube.com/watch?v=V-RCCp7Fljs" },
     { title: "Lady Oflo", contents: "jealous", link: "https://vimeo.com/321125295" },
     { title: "Beau Young Prince", contents: "kill moe", link: "https://www.youtube.com/watch?v=KSn9kYluxOw" },
-    { title: "Obioma", contents: "spring ‘17" , link: "https://vimeo.com/221483710"},
-    { title: "Nwar Club", contents: "everybody drinks wine" , link: " https://vimeo.com/284630098"},
+    { title: "Obioma", contents: "spring ‘17", link: "https://vimeo.com/221483710" },
+    { title: "Nwar Club", contents: "everybody drinks wine", link: " https://vimeo.com/284630098" },
     { title: "TBD Distillery", contents: "why we make whiskey", link: "https://www.youtube.com/watch?v=HhxzCrkPwE8&t=4s" },
   ],
   assistant: [
     { title: "Fight Camp", contents: "this is fight camp", link: "https://www.youtube.com/watch?v=zu1wq8IjAIc" },
-    { title: "Prada", contents: "spring / summer ‘19" , link: "https://vimeo.com/337688483"},
-    { title: "J. ember", contents: "bargain flights" , link: "https://www.youtube.com/watch?v=YZ46fS1OxPU"},
+    { title: "Prada", contents: "spring / summer ‘19", link: "https://vimeo.com/337688483" },
+    { title: "J. ember", contents: "bargain flights", link: "https://www.youtube.com/watch?v=YZ46fS1OxPU" },
   ],
   images_l: [
-    { path: img1, id: 1 },
-    { path: img2, id: 2 },
-    { path: img3, id: 3 },
+    { id: 1, imagepath: img1, videopath: video1 },
+    { id: 2, imagepath: img2, videopath: video2 },
+    { id: 3, imagepath: img3, videopath: video3 },
   ],
   images_r: [
-    { path: img4, id: 4 },
-    { path: img5, id: 5 },
+    { id: 4, imagepath: img4, videopath: video4 },
+    { id: 5, imagepath: img5, videopath: video5 },
   ]
 }
 
@@ -57,16 +62,22 @@ const Imagesection = ({ Items, setPreview, preview }) => {
   return Items.map((item) => (
     <div className={item.id % 2 == 0 ? " d-flex justify-content-start justify-content-md-center" : "d-flex justify-content-end justify-content-md-center"} key={item.id}>
       <a href="/videos " className="w-75 m-2" data-aos-duration="2000" data-aos={item.id % 2 == 0 ? "fade-right" : "fade-left"}>
-        {/* {item.id === preview ?
+        {item.id === preview ?
           <video
             autoPlay
             muted
             loop
-            className=''>
-            <source src={video1} type="video/mp4" />
-          </video> : */}
-        <img src={item.path} alt="" className="w-100" />
-        {/* } */}
+            className='w-100'>
+            <source src={item.videopath} type="video/mp4" />
+          </video> :
+          <img
+            src={item.imagepath}
+            alt=""
+            className="w-100"
+            onMouseOver={() => setPreview(item.id)}
+            onMouseLeave={() => setPreview(0)}
+            />
+        }
       </a>
     </div>
   ))
