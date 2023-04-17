@@ -30,7 +30,7 @@ function App() {
         <Header />
         <RouterProvider router={AllRoute} />
       </div>
-      {
+      {/* {
         ballon === 1 ?
           <div
             style={{ zIndex: -1 }}
@@ -50,7 +50,7 @@ function App() {
             style={{ width: 160, marginLeft: -60, marginTop: 13 }}
             className="position-absolute z-index-1 start-50-100 "
             onClick={() => PlayBallon()} />
-      }
+      } */}
       <footer style={{ height: 80 }}></footer>
     </div >
   );
