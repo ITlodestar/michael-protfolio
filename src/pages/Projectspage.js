@@ -45,11 +45,20 @@ const Projectpage = () => {
               className="col-12 col-md-4 p-3 position-relative"
               key={item.id}>
               <Image
-                src={item.path} alt="..." className="w-100" />
-              <Image
-                src={item.type === "play" ? playicon : previewicon} alt="button"
-                className="position-absolute top-50 start-50 translate-middle"
-                style={item.type === "play" ? { width: 50, height: 50 } : { width: `80%`, height: `80%` }} />
+                src={item.path} alt="..." className="w-100 " />
+
+              <a
+                className="position-absolute top-50 start-50 translate-middle p-3"
+                href={item.type === "play" ? "" : "/Resume/Untitled Raouls Project.pdf"}
+                target={item.type === "play" ? "" : "_blank"}
+                style={item.type === "play" ? { width: 100, height: 100 } : { width: `100%`, height: `100%` }}
+              >
+                <Image
+                  className='w-100'
+                  src={item.type === "play" ? playicon : previewicon} alt="button"
+                />
+              </a>
+
             </div>
           ))
         }
@@ -57,7 +66,7 @@ const Projectpage = () => {
       <div
         className={changeBtn == 0 ? "d-none" : "m-auto"}
         style={{ maxWidth: 380 }}>
-        <Carouselphoto images={image.source} playicon={playicon} previewicon={previewicon}/>
+        <Carouselphoto images={image.source} playicon={playicon} previewicon={previewicon} />
       </div>
     </div>
   )

@@ -44,7 +44,7 @@ const images = {
 function Photopage() {
   return (
     <div className="">
-      <div className="">
+      <div className="px-5">
         <marquee direction="left" className="d-none d-md-block "  scrollamount={20} >
           <div className="d-flex" >
             {

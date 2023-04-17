@@ -6,10 +6,17 @@ function Carouselphoto({ images, playicon, previewicon }) {
     <Carousel>
       {images.map((item) => (
         <Carousel.Item key={item.id} className='position-relative'>
-          <Image
-            src={item.type === "play" ? playicon : previewicon} alt="button"
-            className="position-absolute top-50 start-50 translate-middle"
-            style={item.type === "play" ? { width: 50, height: 50 } : { width: `100%`, height: `100%` }} />
+          <a
+            className="position-absolute top-50 start-50 translate-middle p-3"
+            href={item.type === "play" ? "" : "/Resume/Untitled Raouls Project.pdf"} 
+            target={item.type === "play" ? "" : "_blank"} 
+            style={item.type === "play" ? { width: 110, height: 110 } : { width: `100%`, height: `100%` }}
+            >
+            <Image
+              className='w-100'
+              src={item.type === "play" ? playicon : previewicon} alt="button"
+             />
+          </a>
           <Image
             className="d-block w-100"
             src={item.path}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { useState } from "react";
 
 import img1 from '../assets/img/Landing Page/Prada Spring_Summer _Thumbnail.jpg';
@@ -58,9 +58,16 @@ const Titlesection = ({ Items }) => (
 );
 
 const Imagesection = ({ Items, setPreview, preview }) => {
+  const imgRef = useRef(); 
+  useEffect(() => {
+    imgRef.current.addEventListener('mouseleave', () => console.log('div 1 mouse leave'));
+  }, [])
   console.log(preview);
   return Items.map((item) => (
-    <div className={item.id % 2 == 0 ? " d-flex justify-content-start justify-content-md-center" : "d-flex justify-content-end justify-content-md-center"} key={item.id}>
+    <div 
+    onMouseEnter={() => setPreview(item.id)}
+    onMouseLeave={() => setPreview(0)}
+      className={item.id % 2 == 0 ? " d-flex justify-content-start justify-content-md-center" : "d-flex justify-content-end justify-content-md-center"} key={item.id}>
       <a href="/videos " className="w-75 m-2" data-aos-duration="2000" data-aos={item.id % 2 == 0 ? "fade-right" : "fade-left"}>
         {item.id === preview ?
           <video
@@ -71,11 +78,10 @@ const Imagesection = ({ Items, setPreview, preview }) => {
             <source src={item.videopath} type="video/mp4" />
           </video> :
           <img
+            ref={imgRef}
             src={item.imagepath}
             alt=""
             className="w-100"
-            onMouseOver={() => setPreview(item.id)}
-            onMouseLeave={() => setPreview(0)}
             />
         }
       </a>

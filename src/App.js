@@ -47,7 +47,7 @@ function App() {
           <Image
             id='ballon'
             src={ballonimg}
-            style={{ width: 160, marginLeft: -50, marginTop: 10 }}
+            style={{ width: 160, marginLeft: -60, marginTop: 13 }}
             className="position-absolute z-index-1 start-50-100 "
             onClick={() => PlayBallon()} />
       }

@@ -76,10 +76,12 @@ code {
   bottom: 0;
   left: 50%;
 }
+
 @media (min-width: 768px) {
   .start-50-100 {
     left: 100%;
   }
+
   #exit-video {
     right: 7%;
     top: 60%;
@@ -108,10 +110,12 @@ code {
   20% {
     transform: translateY(87%);
   }
+
   100% {
     transform: translateY(0%);
   }
 }
+
 #bg-video {
   animation: movevideo 5s linear infinite;
 }
