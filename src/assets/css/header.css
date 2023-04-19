@@ -1,10 +1,11 @@
 header {
   z-index: 2;
   position: fixed;
-  background:black;
+  background: black;
 }
+
 header h1 {
-  font-size: 50px;
+  font-size: 30px;
   font-weight: 700;
 }
 
@@ -12,10 +13,12 @@ header h1 {
   color: white;
   cursor: pointer;
 }
-header a{
-  font-size: 20px;
-  font-weight: 400;
+
+header a {
+  font-size: 15px;
+  font-weight: 200;
 }
+
 header a:hover {
   color: white;
 }
@@ -23,7 +26,18 @@ header a:hover {
 #ballon {
   cursor: pointer;
 }
+
 @media (min-width: 768px) {
+  header h1 {
+    font-size: 50px;
+    font-weight: 700;
+  }
+
+  header a {
+    font-size: 20px;
+    font-weight: 400;
+  }
+
   .overflow-hidden-home {
     overflow: hidden;
   }
