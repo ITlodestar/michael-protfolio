@@ -14,12 +14,13 @@ function Contactpage() {
             <div className="col-12 col-md-6 d-flex flex-column justify-content-between p-5" >
                 <div className="content">
                     <p>Michael is a New York based producer, line producer and assistant director.</p>
-                    <p>He started his career in college directing free ads for startups and has since worked for brands
-                        like Prada, Def Jam Records, Condée Naste and Soundcloud. He’s also worked in Brand
-                        Management, Advertising Strategy, G&E, and as a Camera Prep. Tech.
+                    <p>He started his career in college directing free ads for startups
+                        and has since worked for major international brands.
+                        He also has experience in Brand Management, Advertising Strategy,
+                        Camera Department, Rental and G&E.
                     </p>
-                    <p>He also enjoys writing, cooking for friends, hearing people out,
-                        and watching old films.
+                    <p>Off set he enjoys writing, cooking for friends, hearing
+                        people out, and watching black and white flms.
                     </p>
                     <p>You can reach him at  <a href="mailto:michael@michaelbloom.tv">michael@michaelbloom.tv</a></p>
                 </div>
