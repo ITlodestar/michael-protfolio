@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Image } from "react-bootstrap";
 
 import Carouselphoto from "../components/Carouselphoto";
@@ -41,22 +41,50 @@ const images = {
     { path: image16 },
   ]
 }
+
+
+
 function Photopage() {
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  const assetListRef = useRef(null);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      handleScroll();
+    }, 80);
+    return () => clearInterval(intervalId);
+  }, []);
+
+  const handleScroll = () => {
+    const assetList = assetListRef.current;
+    if (scrollPosition === 0)
+      assetList.scrollLeft += 30
+
+  };
+
+
+
   return (
     <div className="">
       <div className="px-5">
-        <marquee direction="left" className="d-none d-md-block "  scrollamount={20} >
-          <div className="d-flex" >
+        <div className="d-none d-md-block " >
+          <button onClick={() => handleScroll()} >left</button>
+          <div className="d-flex w-100 assetList"
+            ref={assetListRef}
+            style={{ overflowX: 'scroll' }}
+            onMouseOver={() => setScrollPosition(1)}
+            onMouseLeave={() => setScrollPosition(0)} >
             {
               images.photos.map((item) => (
-                <Image  style={{height: 600}} className="p-2" key={item.path} src={item.path} alt="" />
+                <Image style={{ height: 600 }} className="p-2" key={item.path} src={item.path} alt="" />
               ))
             }
           </div>
-        </marquee>
+        </div>
       </div>
 
-      <div className="d-grid d-md-none ">
+      <div className="d-grid d-md-none">
         {
           images.photos.map((item) => (
             <Image className="w-100 p-2" key={item.path} src={item.path} alt="" />

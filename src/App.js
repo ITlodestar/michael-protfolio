@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import AllRoute from './router';
 import { Image } from 'react-bootstrap';
 
@@ -11,11 +11,7 @@ import {
 
 
 function App() {
-  useEffect(() => {
-    if (window.location.pathname == '/') {
-      document.body.classList.add('overflow-hidden-home')
-    }
-  }, [])
+ 
   const [ballon, setBallon] = useState(0);
 
   function PlayBallon() {
@@ -28,6 +24,7 @@ function App() {
     <div className='container bg-animation position-relative' >
       <div className='caption'>
         <Header />
+        <div style={{paddingTop: 160}}></div>
         <RouterProvider router={AllRoute} />
       </div>
       {/* {

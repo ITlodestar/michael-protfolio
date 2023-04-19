@@ -40,9 +40,7 @@ const Projectpage = () => {
         {
           image.source.map((item) => (
             <div
-              data-aos-duration="2000"
-              data-aos="zoom-in"
-              className="col-12 col-md-4 p-3 position-relative"
+              className="hover-display col-12 col-md-4 p-3 position-relative"
               key={item.id}>
               <Image
                 src={item.path} alt="..." className="w-100 " />
@@ -54,7 +52,7 @@ const Projectpage = () => {
                 style={item.type === "play" ? { width: 100, height: 100 } : { width: `100%`, height: `100%` }}
               >
                 <Image
-                  className='w-100'
+                  className={item.type === "play" ? "w-100" : "pdf-display w-100"}
                   src={item.type === "play" ? playicon : previewicon} alt="button"
                 />
               </a>

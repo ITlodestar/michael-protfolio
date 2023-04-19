@@ -44,31 +44,27 @@ const homedata = {
 
 const Titlesection = ({ Items }) => (
   Items.map((item) => (
-    <div key={item.title} className="d-flex row  fkex-md-flex align-items-center justify-content-center">
-      <div className="col-6 text-end">
-        <a href={item.link} className="text-decoration-none video-title-left text-light ">
-          <h5 className="fw-bold d-flex justify-content-end   m-0 p-0 align-items-center">{item.title}</h5>
-        </a>
+    <a href={item.link} key={item.title} className="text-decoration-none  text-light ">
+      <div className="video-title d-flex row p-1 fkex-md-flex align-items-center justify-content-center">
+        <div className="col-6 text-end">
+          <h5 className="fw-bold d-flex justify-content-end m-0 p-0 align-items-center">{item.title}</h5>
+        </div>
+        <div className="col-6 text-start">
+          <p className="text-uppercase d-flex m-0 p-0 align-items-center fw-light ps-2"> {item.contents} </p>
+        </div>
       </div>
-      <div className="col-6 text-start">
-        <p className="text-uppercase d-flex m-0 p-0 align-items-center fw-light ps-2"> {item.contents} </p>
-      </div>
-    </div>
+    </a>
   ))
 );
 
 const Imagesection = ({ Items, setPreview, preview }) => {
-  const imgRef = useRef(); 
-  useEffect(() => {
-    imgRef.current.addEventListener('mouseleave', () => console.log('div 1 mouse leave'));
-  }, [])
-  console.log(preview);
+
   return Items.map((item) => (
-    <div 
-    onMouseEnter={() => setPreview(item.id)}
-    onMouseLeave={() => setPreview(0)}
+    <div
+      onMouseEnter={() => setPreview(item.id)}
+      onMouseLeave={() => setPreview(0)}
       className={item.id % 2 == 0 ? "d-flex justify-content-start justify-content-md-center" : "d-flex justify-content-end justify-content-md-center"} key={item.id}>
-      <a href="/videos " className="w-75 m-2 d-flex justify-content-center" data-aos-duration="2000" data-aos={item.id % 2 == 0 ? "fade-right" : "fade-left"}>
+      <a href="/videos " className="w-75 p-3 d-flex justify-content-center" data-aos-duration="2000" data-aos="zoom-in">
         {item.id === preview ?
           <video
             autoPlay
@@ -78,11 +74,10 @@ const Imagesection = ({ Items, setPreview, preview }) => {
             <source src={item.videopath} type="video/mp4" />
           </video> :
           <img
-            ref={imgRef}
             src={item.imagepath}
             alt=""
             className="w-100 me-3"
-            />
+          />
         }
       </a>
     </div>
@@ -98,7 +93,7 @@ function Homepage() {
         <div className="d-md-block w-100 text-center title">
           <h3 className="py-4">Producer</h3>
           <Titlesection Items={homedata.producer} />
-          <h3 className="py-4">Assistant</h3>
+          <h3 className="py-4">Assistant Director</h3>
           <Titlesection Items={homedata.assistant} />
         </div>
 

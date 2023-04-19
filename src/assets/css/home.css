@@ -1,19 +1,18 @@
 .title h5 {
-  font-size: 20px;
+  font-size: 24px;
 }
 
 .title p {
-  font-size: 15px;
+  font-size: 18px;
 }
 
-.center-col {
-  min-width: 480px;
-}
+
 
 
 .images img {
   opacity: 0.9 !important;
 }
+
 .images img:hover {
   opacity: 1 !important;
   cursor: pointer;
@@ -28,9 +27,16 @@
   animation-play-state: paused;
 }
 
-.video-title-left:hover {
+.video-title:hover {
   text-decoration-line: underline !important;
 }
+
+@media (min-width: 768px) {
+  .center-col {
+    min-width: 510px;
+  }
+}
+
 @media (max-width: 768px) {
   .images img {
     width: 80% !important;
@@ -41,10 +47,11 @@
   .center-col {
     min-width: auto;
   }
+
   .title h5 {
     font-size: 15px;
   }
-  
+
   .title p {
     font-size: 10px;
   }
@@ -60,4 +67,3 @@
     transform: translateY(-150%);
   }
 }
-

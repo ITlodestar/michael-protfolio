@@ -1,15 +1,23 @@
+header {
+  z-index: 2;
+  position: fixed;
+  background:black;
+}
 header h1 {
   font-size: 50px;
+  font-weight: 700;
 }
 
 .item {
   color: white;
   cursor: pointer;
 }
-
+header a{
+  font-size: 20px;
+  font-weight: 400;
+}
 header a:hover {
   color: white;
-  text-decoration: underline !important;
 }
 
 #ballon {
@@ -26,7 +34,6 @@ header a:hover {
 
   .item:nth-child(2) {
     margin-right: 0;
-    margin-top: 10px;
     flex-basis: 100%;
     order: 5;
   }

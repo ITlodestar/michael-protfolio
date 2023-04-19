@@ -1,8 +1,20 @@
-body {
-  margin: 0;
-  font-family: 'Optima Pro', sans-serif;
+@font-face {
+  font-family: 'Optima Pro';
+  src: url('./assets/font/OptimaLTPro-Medium.eot');
+  src: local('./assets/font/Optima Pro Medium'), local('OptimaLTPro-Medium'),
+    url('./assets/font/OptimaLTPro-Medium.eot?#iefix') format('embedded-opentype'),
+    url('./assets/font/OptimaLTPro-Medium.woff2') format('woff2'),
+    url('./assets/font/OptimaLTPro-Medium.woff') format('woff'),
+    url('./assets/font/OptimaLTPro-Medium.ttf') format('truetype');
   font-weight: 500;
   font-style: normal;
+  font-display: swap;
+}
+
+
+body {
+  font-family: 'Optima Pro', sans-serif;
+  margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: black;
@@ -10,10 +22,6 @@ body {
   overflow-x: hidden;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
 
 .cursor-pointer {
   cursor: pointer;
@@ -83,7 +91,22 @@ code {
 }
 
 .w-110:hover {
-  width: 130%;
+  width: 110%;
+}
+
+/* Photos page */
+
+
+
+
+/* ------------- */
+ 
+.pdf-display {
+  display: none;
+}
+
+.hover-display:hover .pdf-display {
+  display: inline !important;
 }
 
 @media (min-width: 768px) {
@@ -127,4 +150,75 @@ code {
 
 #bg-video {
   animation: movevideo 5s linear infinite;
+}
+
+.videoheader {
+  left: calc(50% - 150px);
+  position: absolute;
+}
+.videoheader h1 {
+  font-size: 40px;
+}
+
+.assetList {
+  display: flex;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  transition: transform 0.5s ease-in-out;
+}
+
+.asset {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.left-arrow,
+.right-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 1;
+}
+
+.left-arrow {
+  left: 10px;
+}
+
+.right-arrow {
+  right: 10px;
+}
+
+.left-arrow svg,
+.right-arrow svg {
+  width: 40px;
+  height: 40px;
+}
+
+.right-arrow svg {
+  transform: rotate(180deg);
+}
+
+.left-arrow:hover,
+.right-arrow:hover {
+  opacity: 0.7;
+}
+
+@media (min-width: 768px) {
+  .assetList {
+    overflow-x: visible;
+  }
+
+  .asset {
+    width: 40%;
+    margin-right: 20px;
+  }
+
+  .asset:last-child {
+    margin-right: 0;
+  }
 }
