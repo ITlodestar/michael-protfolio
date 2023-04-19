@@ -58,18 +58,15 @@ function Photopage() {
 
   const handleScroll = () => {
     const assetList = assetListRef.current;
-    if (scrollPosition === 0)
-      assetList.scrollLeft += 30
-
+    console.log(assetList.scrollLeft);
+    if (scrollPosition === 0 )
+      assetList.scrollLeft += 50
   };
-
-
 
   return (
     <div className="">
       <div className="px-5">
-        <div className="d-none d-md-block " >
-          <button onClick={() => handleScroll()} >left</button>
+        <div className="d-none d-md-block " > 
           <div className="d-flex w-100 assetList"
             ref={assetListRef}
             style={{ overflowX: 'scroll' }}
