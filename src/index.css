@@ -210,3 +210,10 @@ body {
     margin-right: 0;
   }
 }
+
+footer {
+  height: 150px;
+  background-color: #000;
+  position: sticky;
+  z-index: 999;
+}

@@ -69,6 +69,12 @@
 }
 
 /* /// Videos model */
+.v-small-title {
+  position: sticky;
+  z-index: 999999999;
+  left: calc(50% - 148px);
+  top: 10px;
+}
 
 .v-show {
   transform: translateX(0) !important;
@@ -134,7 +140,7 @@
 }
 
 #exit-video img {
-  width: 40px; 
+  width: 40px;
 }
 
 @media (min-width: 768px) {

@@ -33,7 +33,7 @@ const images = {
 function Videopage({ SetDisplayvideo }) {
   return (
     <div className="d-grid videopage">
-      <h3 className="text-center py-3">michael bloom</h3>
+      <h3 className="text-center py-3 v-small-title">michael bloom</h3>
       {
         images.video.map((item) => (
           <div data-aos="fade-right" data-aos-duration="5000" className="d-flex align-items-center title-video-md" key={item.path} >

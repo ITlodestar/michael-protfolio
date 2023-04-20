@@ -48,7 +48,7 @@ function App() {
             className="position-absolute z-index-1 start-50-100 "
             onClick={() => PlayBallon()} />
       } */}
-      <footer style={{ height: 80 }}></footer>
+      <footer></footer>
     </div >
   );
 }
