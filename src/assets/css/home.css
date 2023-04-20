@@ -95,7 +95,12 @@
   transition: transform 1s var(--easing-authentic-motion), background-color .4s var(--easing-authentic-motion);
   width: 100%;
 }
-
+.section-video {
+  
+  position: relative;
+  padding: 0; 
+  overflow: hidden; 
+}
 .section-video .bg-video {
   transition: transform 1s var(--easing-authentic-motion), opacity .3s var(--easing-authentic-motion);
 }
@@ -112,14 +117,14 @@
   width: 97%
 }
 
-.title-video-md h1 {
+.title-video-md .large-title {
   position: static;
 }
 
-.title-video-md h4 {
+.title-video-md .small-credits {
   font-size: 15px;
-  right: 9%;
-  bottom: 9%;
+  right: 9% !important;
+  bottom: 9% !important;
 }
 
 .v-playbtn {
@@ -162,14 +167,14 @@
     height: 50px;
   }
 
-  .title-video-md h1 {
+  .title-video-md  .large-title {
     position: absolute;
     font-size: 75px;
   }
 
-  .title-video-md h4 {
+  .title-video-md .small-credits4 {
     font-size: 22px;
-    right: 9%;
-    bottom: 9%;
+    right: 9% !important;
+    bottom: 9% !important;
   }
 }

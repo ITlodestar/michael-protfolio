@@ -11,13 +11,14 @@ import {
 
 
 function App() {
- 
+
   const [ballon, setBallon] = useState(0);
-  useEffect(() => {
-    if (window.location.pathname == '/') {
-        document.body.style.overflow = "hidden"
-    }
-}, [])
+  // useEffect(() => {
+  //   if (window.location.pathname == '/') {
+      
+  //     document.body.style.overflow = "hidden";
+  //   }
+  // }, [])
 
   function PlayBallon() {
     setBallon(1);
@@ -29,7 +30,7 @@ function App() {
     <div className='container bg-animation position-relative' >
       <div className='caption position-relative'>
         <Header />
-        <div style={{paddingTop: 160}}></div>
+        <div style={{ paddingTop: 160 }}></div>
         <RouterProvider router={AllRoute} />
       </div>
       {/* {

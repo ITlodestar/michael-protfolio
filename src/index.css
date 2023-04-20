@@ -79,7 +79,9 @@ body {
   height: 60px !important;
 }
 
-
+.revealUp {
+  opacity: 0;
+}
 
 
 .start-50-100 {

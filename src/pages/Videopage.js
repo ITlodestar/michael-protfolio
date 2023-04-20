@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Image } from "react-bootstrap";
-import { VideoHTMLAttributes } from "react";
 
 import image1 from '../assets/img/video/j ember - Bargain Flights_Slide in.jpg';
 import image2 from '../assets/img/video/Prada Spring_Summer _Slide in Final.jpg';
@@ -30,37 +29,44 @@ const images = {
     { path: image10, author: "Why We Make Whiskey", title: "Tabacco Barn Distillery", s_author: "Prod. Omada Cinema", s_contents: "EP. Michael Bloom" },
   ]
 }
-function Videopage({ SetDisplayvideo }) {
+function Videopage() {
+
+
   return (
     <div className="d-grid videopage">
       <h3 className="text-center py-3 v-small-title">michael bloom</h3>
       {
         images.video.map((item) => (
-          <div data-aos="fade-right" data-aos-duration="5000" className="d-flex align-items-center title-video-md" key={item.path} >
-            <div className={item.first ? "cursor-pointer section-video me-0 w-100 my-4 position-relative" : "cursor-pointer section-video me-5 w-100 my-4 position-relative "}>
-              <h1
-                className="ps-3"
-                data-aos-duration="2000"
-                data-aos="flip-up"
-                data-aos-easing="ease-in-out"
-                style={{ left: `10%`, bottom: `15%`, zIndex: 1 }}>{item.author} <br /> {item.title} </h1>
-              <h4
+          <div className="ps-3 d-flex align-items-center title-video-md" key={item.path} >
+            <div className={item.first ? "cursor-pointer section-video me-0 w-100 my-4  " : "cursor-pointer section-video me-5 w-100 my-4"}>
+              <div className="revealUp  large-title"
+                style={{ left: `10%`, bottom: `15%`, zIndex: 1 }}>
+                <h1
+                  className=" "
+                >{item.author} </h1>
+                <h1 className=" revealUp"> {item.title}</h1>
+              </div>
+
+              <div
                 style={{ zIndex: 1 }}
-                className="position-absolute "
-                data-aos-duration="2000"
-                data-aos="flip-down"
-                data-aos-easing="ease-in-out"
-              >{item.s_author} <br />{item.s_contents}</h4>
+                className="position-absolute small-credits revealUp">
+                <h4 className="revealUp">{item.s_author}
+                </h4>
+                <h4 className="revealUp">{item.s_contents}</h4>
+              </div>
+
               <div >
                 <Image className="position-absolute  start-50 translate-middle v-playbtn"
-                   src={playIcon} alt="play icon..." />
+                  src={playIcon} alt="play icon..." />
               </div>
               <Image src={item.path} className="bg-video rounded-3 p-3" style={{ width: `97%` }} />
             </div>
           </div>
         ))
       }
-     
+      <div style={{ height: 400}}>
+
+      </div>
     </div>
   );
 }

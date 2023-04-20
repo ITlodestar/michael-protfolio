@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useLayoutEffect } from "react";
 import { Image } from "react-bootstrap";
 
 import img1 from '../assets/img/Landing Page/Prada Spring_Summer _Thumbnail.jpg';
@@ -19,6 +19,8 @@ import Videopage from "./Videopage";
 
 import exitbutton from "../assets/Icons/ExitButton.png";
 
+import { gsap } from "gsap";
+import ScrollTrigger from 'gsap/ScrollTrigger'
 
 const homedata = {
   producer: [
@@ -70,9 +72,9 @@ const Imagesection = ({ Items, setPreview, preview, SetDisplayvideo }) => {
       <a
         onMouseEnter={() => setPreview(item.id)}
         onMouseLeave={() => setPreview(0)}
-        onClick={() => SetDisplayvideo(1)} 
-        className="w-75 m-4 d-flex justify-content-center" 
-        data-aos-duration="2000" 
+        onClick={() => SetDisplayvideo(1)}
+        className="w-75 m-4 d-flex justify-content-center"
+        data-aos-duration="2000"
         data-aos="zoom-in">
         {item.id === preview ?
           <video
@@ -89,7 +91,6 @@ const Imagesection = ({ Items, setPreview, preview, SetDisplayvideo }) => {
           />
         }
       </a>
-
     </div>
   ))
 };
@@ -98,6 +99,55 @@ const Imagesection = ({ Items, setPreview, preview, SetDisplayvideo }) => {
 function Homepage() {
   const [preview, setPreview] = useState(0);
   const [displayvideo, SetDisplayvideo] = useState(0);
+
+
+
+  useLayoutEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    // REVEAL // 
+    gsap.utils.toArray(".revealUp").forEach(function (elem) {
+
+      ScrollTrigger.create({
+        trigger: elem,
+        start: 'top center',
+        end: '+=250',
+        scroller: "#video-section",
+        scrub: 6,
+        
+        onEnter: function () {
+          gsap.fromTo(
+            elem,
+            {
+              autoAlpha: 0,
+              transform: `translateY(50%)`
+            },
+            {
+              transform: `translateY(0%)`,
+              autoAlpha: 1
+            }
+          );
+        },
+        onLeaveBack: function () {
+          gsap.fromTo(
+            elem,
+            
+            {
+              autoAlpha: 1,
+              transform: `translateY(0%)`
+            },
+            {
+              transform: `translateY(5%)`,
+              autoAlpha: 0
+            }
+          );
+        }
+      });
+    });
+  }, [])
+
+
+
   return (
     <>
       <div className="d-md-flex align-items-center justify-content-center">
@@ -116,7 +166,7 @@ function Homepage() {
           <Imagesection Items={homedata.images_r} setPreview={setPreview} preview={preview} SetDisplayvideo={SetDisplayvideo} />
         </div>
       </div>
-      <div className={displayvideo ? "v-display v-show" : "v-display"} >
+      <div id="video-section" className={displayvideo ? "v-display v-show" : "v-display"} >
         <Videopage SetDisplayvideo={SetDisplayvideo} />
         <div onClick={() => SetDisplayvideo(0)} id="exit-video" className="cursor-pointer " >
           <Image src={exitbutton} />
