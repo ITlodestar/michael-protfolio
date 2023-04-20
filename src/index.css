@@ -12,6 +12,21 @@
 }
 
 
+
+:root {
+  --color-white: #fff;
+  --color-black: #000;
+  --color-grey: #999;
+  --unit-100vh: 100vh;
+  --unit-gap: 40px;
+  --unit-max-width: 1800px;
+  --font-primary: "Buch", sans-serif;
+  --font-secondary: "Kraftig", serif;
+  --font-tertiary: "Halbfett", serif;
+  --unit-header-height: 60px;
+  --easing-authentic-motion: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 body {
   font-family: 'Optima Pro', sans-serif;
   margin: 0;
@@ -32,17 +47,6 @@ body {
 
 .contactpage .content p {
   font-size: 20px;
-}
-
-/* Video page */
-.title-video-md h1 {
-  position: static;
-}
-
-.title-video-md h4 {
-  font-size: 15px;
-  bottom: 5%;
-  right: 5%;
 }
 
 
@@ -75,10 +79,8 @@ body {
   height: 60px !important;
 }
 
-#exit-video {
-  right: 0%;
-  top: 40%;
-}
+
+
 
 .start-50-100 {
   bottom: 0;
@@ -86,7 +88,7 @@ body {
 }
 
 .w-110 {
-  width: 80%;
+  width: 100%;
   transition: 0.3s ease-in-out;
 }
 
@@ -100,7 +102,7 @@ body {
 
 
 /* ------------- */
- 
+
 .pdf-display {
   display: none;
 }
@@ -114,23 +116,8 @@ body {
     left: 100%;
   }
 
-  #exit-video {
-    right: 7%;
-    top: 60%;
-  }
-
   .contactpage .content p {
     font-size: 22px;
-  }
-
-  .title-video-md h1 {
-    position: absolute;
-  }
-
-  .title-video-md h4 {
-    font-size: 25px;
-    right: 5%;
-    bottom: 12%;
   }
 }
 
@@ -156,6 +143,7 @@ body {
   left: calc(50% - 150px);
   position: absolute;
 }
+
 .videoheader h1 {
   font-size: 40px;
 }

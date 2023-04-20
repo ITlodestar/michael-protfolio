@@ -1,5 +1,5 @@
-import React, { useEffect, useRef } from "react";
-import { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { Image } from "react-bootstrap";
 
 import img1 from '../assets/img/Landing Page/Prada Spring_Summer _Thumbnail.jpg';
 import img2 from '../assets/img/Landing Page/j ember - Bargain Flights_Thumbnail.jpg';
@@ -14,6 +14,11 @@ import video2 from '../assets/video/j ember _Bargain Flights_Compressed.mp4';
 import video3 from '../assets/video/This is FightCamp _Compressed.mp4';
 import video4 from '../assets/video/BYP_I AM BYP_Compressed.mp4';
 import video5 from '../assets/video/Jealous - Final ProRes.mp4';
+import Videopage from "./Videopage";
+
+
+import exitbutton from "../assets/Icons/ExitButton.png";
+
 
 const homedata = {
   producer: [
@@ -57,14 +62,18 @@ const Titlesection = ({ Items }) => (
   ))
 );
 
-const Imagesection = ({ Items, setPreview, preview }) => {
+const Imagesection = ({ Items, setPreview, preview, SetDisplayvideo }) => {
 
   return Items.map((item) => (
     <div
-      onMouseEnter={() => setPreview(item.id)}
-      onMouseLeave={() => setPreview(0)}
       className={item.id % 2 == 0 ? "d-flex justify-content-start justify-content-md-center" : "d-flex justify-content-end justify-content-md-center"} key={item.id}>
-      <a href="/videos " className="w-75 p-3 d-flex justify-content-center" data-aos-duration="2000" data-aos="zoom-in">
+      <a
+        onMouseEnter={() => setPreview(item.id)}
+        onMouseLeave={() => setPreview(0)}
+        onClick={() => SetDisplayvideo(1)} 
+        className="w-75 m-4 d-flex justify-content-center" 
+        data-aos-duration="2000" 
+        data-aos="zoom-in">
         {item.id === preview ?
           <video
             autoPlay
@@ -80,6 +89,7 @@ const Imagesection = ({ Items, setPreview, preview }) => {
           />
         }
       </a>
+
     </div>
   ))
 };
@@ -87,24 +97,32 @@ const Imagesection = ({ Items, setPreview, preview }) => {
 
 function Homepage() {
   const [preview, setPreview] = useState(0);
+  const [displayvideo, SetDisplayvideo] = useState(0);
   return (
-    <div className="d-md-flex align-items-center justify-content-center">
-      <div className="center-col">
-        <div className="d-md-block w-100 text-center title">
-          <h3 className="py-4">Producer</h3>
-          <Titlesection Items={homedata.producer} />
-          <h3 className="py-4">Assistant Director</h3>
-          <Titlesection Items={homedata.assistant} />
+    <>
+      <div className="d-md-flex align-items-center justify-content-center">
+        <div className="center-col">
+          <div className="d-md-block w-100 text-center title">
+            <h3 className="py-4">Producer</h3>
+            <Titlesection Items={homedata.producer} />
+            <h3 className="py-4">Assistant Director</h3>
+            <Titlesection Items={homedata.assistant} />
+          </div>
         </div>
-
+        <div className="images d-flex flex-column order-md-first ">
+          <Imagesection Items={homedata.images_l} setPreview={setPreview} preview={preview} SetDisplayvideo={SetDisplayvideo} />
+        </div>
+        <div className="images d-flex flex-column">
+          <Imagesection Items={homedata.images_r} setPreview={setPreview} preview={preview} SetDisplayvideo={SetDisplayvideo} />
+        </div>
       </div>
-      <div className="images d-flex flex-column order-md-first ">
-        <Imagesection Items={homedata.images_l} setPreview={setPreview} preview={preview} />
+      <div className={displayvideo ? "v-display v-show" : "v-display"} >
+        <Videopage SetDisplayvideo={SetDisplayvideo} />
+        <div onClick={() => SetDisplayvideo(0)} id="exit-video" className="cursor-pointer " >
+          <Image src={exitbutton} />
+        </div>
       </div>
-      <div className="images d-flex flex-column">
-        <Imagesection Items={homedata.images_r} setPreview={setPreview} preview={preview} />
-      </div>
-    </div>
+    </>
   );
 }
 

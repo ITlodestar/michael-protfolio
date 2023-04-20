@@ -30,36 +30,37 @@ const images = {
     { path: image10, author: "Why We Make Whiskey", title: "Tabacco Barn Distillery", s_author: "Prod. Omada Cinema", s_contents: "EP. Michael Bloom" },
   ]
 }
-function Videopage() {
+function Videopage({ SetDisplayvideo }) {
   return (
     <div className="d-grid videopage">
+      <h3 className="text-center py-3">michael bloom</h3>
       {
         images.video.map((item) => (
           <div data-aos="fade-right" data-aos-duration="5000" className="d-flex align-items-center title-video-md" key={item.path} >
-            <div className={item.first ? "me-0 w-100 my-4 position-relative" : "me-5 w-100 my-4 position-relative"}>
+            <div className={item.first ? "cursor-pointer section-video me-0 w-100 my-4 position-relative" : "cursor-pointer section-video me-5 w-100 my-4 position-relative "}>
               <h1
+                className="ps-3"
                 data-aos-duration="2000"
-                data-aos="flip-up" 
+                data-aos="flip-up"
                 data-aos-easing="ease-in-out"
-                style={{ left: `10%`, bottom: `15%` }}>{item.author} <br /> {item.title} </h1>
+                style={{ left: `10%`, bottom: `15%`, zIndex: 1 }}>{item.author} <br /> {item.title} </h1>
               <h4
-                className="position-absolute"
+                style={{ zIndex: 1 }}
+                className="position-absolute "
                 data-aos-duration="2000"
-                data-aos="flip-down" 
+                data-aos="flip-down"
                 data-aos-easing="ease-in-out"
               >{item.s_author} <br />{item.s_contents}</h4>
-              <a href="#">
-                <Image className="position-absolute top-50 start-50 translate-middle"
-                  style={{ width: 55, height: 50 }} src={playIcon} alt="play icon..." />
-              </a>
-              <Image src={item.path} className="rounded-3" style={{width: `97%`}} />
+              <div >
+                <Image className="position-absolute  start-50 translate-middle v-playbtn"
+                   src={playIcon} alt="play icon..." />
+              </div>
+              <Image src={item.path} className="bg-video rounded-3 p-3" style={{ width: `97%` }} />
             </div>
           </div>
         ))
       }
-      <a href="/" id="exit-video" className="d-inline position-fixed " >
-        <Image src={exitbutton} style={{ width: 50, height: 50 }} />
-      </a>
+     
     </div>
   );
 }
