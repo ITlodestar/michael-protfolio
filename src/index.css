@@ -215,5 +215,5 @@ footer {
   height: 150px;
   background-color: #000;
   position: sticky;
-  z-index: 999;
+  z-index: 90;
 }

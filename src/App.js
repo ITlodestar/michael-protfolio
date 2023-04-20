@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import AllRoute from './router';
 import { Image } from 'react-bootstrap';
 
@@ -13,6 +13,11 @@ import {
 function App() {
  
   const [ballon, setBallon] = useState(0);
+  useEffect(() => {
+    if (window.location.pathname == '/') {
+        document.body.style.overflow = "hidden"
+    }
+}, [])
 
   function PlayBallon() {
     setBallon(1);
