@@ -101,10 +101,11 @@ function Homepage() {
   const [displayvideo, SetDisplayvideo] = useState(0);
 
 
-
-  useLayoutEffect(() => {
+  useEffect(() => {
+    
     gsap.registerPlugin(ScrollTrigger);
-
+    gsap.set(document.querySelectorAll('.section-video .revealUp'), { opacity: 0.0001, y: '100%' });
+    gsap.set(document.querySelectorAll('.section-video'), { opacity: 1 });
     // REVEAL // 
     gsap.utils.toArray(".revealUp").forEach(function (elem) {
 
@@ -114,37 +115,75 @@ function Homepage() {
         end: '+=250',
         scroller: "#video-section",
         scrub: 6,
-        
+
         onEnter: function () {
-          gsap.fromTo(
+          gsap.to(
             elem,
-            {
-              autoAlpha: 0,
-              transform: `translateY(50%)`
-            },
-            {
-              transform: `translateY(0%)`,
-              autoAlpha: 1
-            }
+            { opacity: 1, y: '0%', ease: 'power4.inOut', duration: 1.2, stagger: 0.01 }
+          );
+        },
+        onEnterBack: function () {
+          gsap.to(
+            elem,
+            { opacity: 1, y: '0%', ease: 'power4.inOut', duration: 1.2, stagger: 0.01 }
           );
         },
         onLeaveBack: function () {
-          gsap.fromTo(
+          gsap.to(
             elem,
-            
-            {
-              autoAlpha: 1,
-              transform: `translateY(0%)`
-            },
-            {
-              transform: `translateY(5%)`,
-              autoAlpha: 0
-            }
+            { opacity: 0.0001, y: '100%', rotation: '0deg', ease: 'power4.inOut', duration: 1.2, stagger: 0.01, delay: 5 }
           );
         }
       });
     });
-  }, [])
+  });
+
+
+  // useLayoutEffect(() => {
+  //   gsap.registerPlugin(ScrollTrigger);
+
+  //   // REVEAL // 
+  //   gsap.utils.toArray(".revealUp").forEach(function (elem) {
+
+  //     ScrollTrigger.create({
+  //       trigger: elem,
+  //       start: 'top center',
+  //       end: '+=250',
+  //       scroller: "#video-section",
+  //       scrub: 6,
+
+  //       onEnter: function () {
+  //         gsap.fromTo(
+  //           elem,
+  //           {
+  //             autoAlpha: 0,
+  //             transform: `translateY(50%)`,
+  //             opacity: 0.0001, y: '200%', rotation: '3deg'
+
+  //           },
+  //           {
+  //             transform: `translateY(0%)`,
+  //             autoAlpha: 1
+  //           }
+  //         );
+  //       },
+  //       onLeaveBack: function () {
+  //         gsap.fromTo(
+  //           elem,
+
+  //           {
+  //             autoAlpha: 1,
+  //             transform: `translateY(0%)`
+  //           },
+  //           {
+  //             transform: `translateY(50%)`,
+  //             autoAlpha: 0
+  //           }
+  //         );
+  //       }
+  //     });
+  //   });
+  // }, [])
 
 
 

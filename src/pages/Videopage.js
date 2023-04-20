@@ -38,7 +38,7 @@ function Videopage() {
       {
         images.video.map((item) => (
           <div className="ps-3 d-flex align-items-center title-video-md" key={item.path} >
-            <div className={item.first ? "cursor-pointer section-video me-0 w-100 my-4  " : "cursor-pointer section-video me-5 w-100 my-4"}>
+            <div className={item.first ? " cursor-pointer section-video me-0 w-100 my-4  " : "cursor-pointer section-video me-5 w-100 my-4"}>
               <div className="revealUp  large-title"
                 style={{ left: `10%`, bottom: `15%`, zIndex: 1 }}>
                 <h1
