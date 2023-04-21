@@ -101,7 +101,6 @@ function Homepage() {
   const [displayvideo, SetDisplayvideo] = useState(0);
   const titleRef = useRef(null);
   const [currentTransform, setCurrentTransform] = useState(0);
-  const [isAnimationPaused, setIsAnimationPaused] = useState(false);
 
 
   useEffect(() => {
@@ -146,7 +145,6 @@ function Homepage() {
       });
     });
   });
-
 
   // useLayoutEffect(() => {
   //   gsap.registerPlugin(ScrollTrigger);
@@ -195,9 +193,7 @@ function Homepage() {
   // }, [])
 
   const onWheel = (even) => {
-    // setIsAnimationPaused(true);
     const translateY = window.getComputedStyle(titleRef.current).transform.match(/(-?[0-9\.]+)/g)[5];
-    // console.log(translateY);
     setCurrentTransform(parseFloat(translateY) + parseFloat(even.deltaY / 10));
   }
 
@@ -208,7 +204,7 @@ function Homepage() {
           <div
             ref={titleRef}
             style={{ transform: `translateY(${currentTransform}px)` }}
-            onWheel={(e) => onWheel(e)}>
+            onWheel={(e) => onWheel(e)} >
             <div className="d-md-block w-100 text-center title">
               <h3 className="py-4">Producer</h3>
               <Titlesection Items={homedata.producer} />

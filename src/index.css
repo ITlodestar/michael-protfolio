@@ -135,9 +135,11 @@ body {
 }
 
 @media (min-width: 768px) {
+  .overflow-md-hidden {
+    overflow: hidden;
+  }
   .start-50-100 {
-    bottom: 0;
-    padding-bottom: 50px;
+    bottom: 0;  
     left: calc(100% - 250px);
   }
 
@@ -237,9 +239,11 @@ body {
 }
 
 footer {
-  height: 450px;
-  background-color: #000;
-  position: sticky;
+  height:80px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #000; 
   z-index: 90;
 }
 

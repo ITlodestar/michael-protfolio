@@ -15,7 +15,7 @@ function App() {
   const [ballon, setBallon] = useState(0);
   useEffect(() => {
     if (window.location.pathname == '/') {
-      document.body.style.overflow = "hidden";
+      document.body.classList.add("overflow-md-hidden");
     }
   }, [])
 
@@ -29,7 +29,7 @@ function App() {
     <div className='container bg-animation position-relative' >
       <div className='caption position-relative'>
         <Header />
-        <div style={{ paddingTop: 160 }}></div>
+        <div style={{ paddingTop: 100 }}></div>
         <RouterProvider router={AllRoute} />
       </div>
       {
