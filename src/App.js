@@ -29,7 +29,7 @@ function App() {
     <div className='container bg-animation position-relative' >
       <div className='caption position-relative'>
         <Header />
-        <div style={{ paddingTop: 100 }}></div>
+        <div style={{ paddingTop: 150 }}></div>
         <RouterProvider router={AllRoute} />
       </div>
       {

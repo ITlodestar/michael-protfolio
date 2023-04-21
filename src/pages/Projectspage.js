@@ -35,7 +35,7 @@ const Projectpage = () => {
       </div>
       <div
 
-        className={changeBtn == 0 ? "row m-auto " : "d-none "}
+        className={changeBtn == 0 ? "row m-auto pb-3 " : "d-none "}
         style={{ maxWidth: 680 }}>
         {
           image.source.map((item) => (

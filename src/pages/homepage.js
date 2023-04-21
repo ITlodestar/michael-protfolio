@@ -194,7 +194,7 @@ function Homepage() {
 
   const onWheel = (even) => {
     const translateY = window.getComputedStyle(titleRef.current).transform.match(/(-?[0-9\.]+)/g)[5];
-    setCurrentTransform(parseFloat(translateY) + parseFloat(even.deltaY / 10));
+    setCurrentTransform(parseFloat(translateY) - parseFloat(even.deltaY / 10));
   }
 
   return (
