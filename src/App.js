@@ -4,7 +4,7 @@ import { Image } from 'react-bootstrap';
 
 import Header from "./components/Header";
 
-import ballonimg from "../src/assets/ballonimg.jpg";
+import ballonimg from "../src/assets/ballonimg.png";
 import {
   RouterProvider,
 } from "react-router-dom";
@@ -13,12 +13,11 @@ import {
 function App() {
 
   const [ballon, setBallon] = useState(0);
-  // useEffect(() => {
-  //   if (window.location.pathname == '/') {
-      
-  //     document.body.style.overflow = "hidden";
-  //   }
-  // }, [])
+  useEffect(() => {
+    if (window.location.pathname == '/') {
+      document.body.style.overflow = "hidden";
+    }
+  }, [])
 
   function PlayBallon() {
     setBallon(1);
@@ -33,7 +32,7 @@ function App() {
         <div style={{ paddingTop: 160 }}></div>
         <RouterProvider router={AllRoute} />
       </div>
-      {/* {
+      {
         ballon === 1 ?
           <div
             style={{ zIndex: -1 }}
@@ -42,18 +41,21 @@ function App() {
               autoPlay
               muted
               loop
-              id='bg-video'
-              className=''>
+              id='bg-video'>
               <source src="/Balloon.mp4" type="video/mp4" />
             </video>
           </div> :
-          <Image
-            id='ballon'
-            src={ballonimg}
-            style={{ width: 160, marginLeft: -60, marginTop: 13 }}
-            className="position-absolute z-index-1 start-50-100 "
-            onClick={() => PlayBallon()} />
-      } */}
+          <div
+            className="position-absolute  start-50-100 image-btn d-flex align-items-end"
+            style={{ zIndex: 99 }}>
+            <Image
+              id='ballon'
+              src={ballonimg}
+              style={{ paddingBottom: 24 }}
+              onClick={() => PlayBallon()} />
+            <h2 className='producernyc'>producer nyc</h2>
+          </div>
+      }
       <footer></footer>
     </div >
   );

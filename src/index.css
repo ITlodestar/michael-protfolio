@@ -11,6 +11,31 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Optima Pro Roman';
+  src: url('./assets/font/OptimaLTPro-Roman.eot');
+  src: local('./assets/font/Optima Pro Roman'), local('./assets/font/OptimaLTPro-Roman'),
+    url('./assets/font/OptimaLTPro-Roman.eot?#iefix') format('embedded-opentype'),
+    url('./assets/font/OptimaLTPro-Roman.woff2') format('woff2'),
+    url('./assets/font/OptimaLTPro-Roman.woff') format('woff'),
+    url('./assets/font/OptimaLTPro-Roman.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Optima Pro';
+  src: url('./assets/font/OptimaLTPro-BoldItalic.eot');
+  src: local('./assets/font/Optima Pro Bold Italic'), local('./assets/font/OptimaLTPro-BoldItalic'),
+    url('./assets/font/OptimaLTPro-BoldItalic.eot?#iefix') format('embedded-opentype'),
+    url('./assets/font/OptimaLTPro-BoldItalic.woff2') format('woff2'),
+    url('./assets/font/OptimaLTPro-BoldItalic.woff') format('woff'),
+    url('./assets/font/OptimaLTPro-BoldItalic.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
 
 
 :root {
@@ -86,7 +111,7 @@ body {
 
 .start-50-100 {
   bottom: 0;
-  left: 50%;
+  left: calc(50% - 80px);
 }
 
 .w-110 {
@@ -97,10 +122,6 @@ body {
 .w-110:hover {
   width: 110%;
 }
-
-/* Photos page */
-
-
 
 
 /* ------------- */
@@ -115,7 +136,9 @@ body {
 
 @media (min-width: 768px) {
   .start-50-100 {
-    left: 100%;
+    bottom: 0;
+    padding-bottom: 50px;
+    left: calc(100% - 250px);
   }
 
   .contactpage .content p {
@@ -214,8 +237,15 @@ body {
 }
 
 footer {
-  height: 150px;
+  height: 450px;
   background-color: #000;
   position: sticky;
   z-index: 90;
+}
+
+.producernyc {
+  font-family: 'Optima Pro';
+  font-weight: bold;
+  font-style: italic;
+  font-size: 24px;
 }

@@ -60,7 +60,7 @@
 
 @keyframes move {
   from {
-    transform: translateY(110%);
+    transform: translateY(100%);
   }
 
   to {
@@ -95,12 +95,14 @@
   transition: transform 1s var(--easing-authentic-motion), background-color .4s var(--easing-authentic-motion);
   width: 100%;
 }
+
 .section-video {
-  
+
   position: relative;
-  padding: 0; 
-  overflow: hidden; 
+  padding: 0;
+  overflow: hidden;
 }
+
 .section-video .bg-video {
   transition: transform 1s var(--easing-authentic-motion), opacity .3s var(--easing-authentic-motion);
 }
@@ -122,11 +124,16 @@
 }
 
 .title-video-md .small-credits {
-  font-size: 15px;
   right: 9% !important;
   bottom: 9% !important;
+  
 }
-
+.title-video-md .small-credits h4 {
+  font-size: 12px;
+  font-family: 'Optima Pro Roman',  sans-serif;
+  font-weight: normal;
+  font-style: normal;
+}
 .v-playbtn {
   width: 25px;
   height: 25px;
@@ -167,14 +174,20 @@
     height: 50px;
   }
 
-  .title-video-md  .large-title {
+  .title-video-md .large-title {
     position: absolute;
-    font-size: 75px;
   }
 
-  .title-video-md .small-credits4 {
-    font-size: 22px;
+  .title-video-md .large-title h1 {
+    font-size: 90px;
+  }
+
+  .title-video-md .small-credits {
     right: 9% !important;
     bottom: 9% !important;
+  }
+
+  .title-video-md .small-credits h4 {
+    font-size: 22px;
   }
 }

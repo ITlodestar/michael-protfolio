@@ -99,10 +99,13 @@ const Imagesection = ({ Items, setPreview, preview, SetDisplayvideo }) => {
 function Homepage() {
   const [preview, setPreview] = useState(0);
   const [displayvideo, SetDisplayvideo] = useState(0);
+  const titleRef = useRef(null);
+  const [currentTransform, setCurrentTransform] = useState(0);
+  const [isAnimationPaused, setIsAnimationPaused] = useState(false);
 
 
   useEffect(() => {
-    
+
     gsap.registerPlugin(ScrollTrigger);
     gsap.set(document.querySelectorAll('.section-video .revealUp'), { opacity: 0.0001, y: '100%' });
     gsap.set(document.querySelectorAll('.section-video'), { opacity: 1 });
@@ -128,10 +131,16 @@ function Homepage() {
             { opacity: 1, y: '0%', ease: 'power4.inOut', duration: 1.2, stagger: 0.01 }
           );
         },
+        onLeave: function () {
+          gsap.to(
+            elem,
+            { opacity: 0.0001, y: '50%', rotation: '0deg', ease: 'power4.inOut', duration: 1.2, stagger: 0.01, delay: 5 }
+          );
+        },
         onLeaveBack: function () {
           gsap.to(
             elem,
-            { opacity: 0.0001, y: '100%', rotation: '0deg', ease: 'power4.inOut', duration: 1.2, stagger: 0.01, delay: 5 }
+            { opacity: 0.0001, y: '50%', rotation: '0deg', ease: 'power4.inOut', duration: 1.2, stagger: 0.01, delay: 5 }
           );
         }
       });
@@ -185,17 +194,28 @@ function Homepage() {
   //   });
   // }, [])
 
-
+  const onWheel = (even) => {
+    // setIsAnimationPaused(true);
+    const translateY = window.getComputedStyle(titleRef.current).transform.match(/(-?[0-9\.]+)/g)[5];
+    // console.log(translateY);
+    setCurrentTransform(parseFloat(translateY) + parseFloat(even.deltaY / 10));
+  }
 
   return (
     <>
       <div className="d-md-flex align-items-center justify-content-center">
         <div className="center-col">
-          <div className="d-md-block w-100 text-center title">
-            <h3 className="py-4">Producer</h3>
-            <Titlesection Items={homedata.producer} />
-            <h3 className="py-4">Assistant Director</h3>
-            <Titlesection Items={homedata.assistant} />
+          <div
+            ref={titleRef}
+            style={{ transform: `translateY(${currentTransform}px)` }}
+            onWheel={(e) => onWheel(e)}>
+            <div className="d-md-block w-100 text-center title">
+              <h3 className="py-4">Producer</h3>
+              <Titlesection Items={homedata.producer} />
+              <h3 className="py-4">Assistant Director</h3>
+              <Titlesection Items={homedata.assistant} />
+            </div>
+
           </div>
         </div>
         <div className="images d-flex flex-column order-md-first ">

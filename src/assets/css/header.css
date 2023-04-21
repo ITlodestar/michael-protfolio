@@ -25,6 +25,7 @@ header a:hover {
 
 #ballon {
   cursor: pointer;
+  width: 100px;
 }
 
 @media (min-width: 768px) {
