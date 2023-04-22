@@ -115,7 +115,8 @@
   top: 1px;
   left: 1px;
   z-index: 999;
-  width: 85%
+  width: 85%;
+  background-color: black;
 }
 
 .title-video-md .large-title {

@@ -37,25 +37,24 @@ function Videopage() {
       <h3 className="text-center py-3 v-small-title">michael bloom</h3>
       {
         images.video.map((item) => (
-          <div className="ps-3 d-flex align-items-center title-video-md" style={{backgroundColor: "#000"}} key={item.path} >
+          <div className="ps-3 d-flex align-items-center title-video-md"  key={item.path} >
             <div className={item.first ? " cursor-pointer section-video pe-0 w-100 py-4  " : "cursor-pointer section-video w-100 py-4"}>
-              <div className="revealUp  large-title"
+              <div className="revealUp large-title"
                 style={{ left: `10%`, bottom: `15%`, zIndex: 1 }}>
                 <h1
-                  className=" "
+                  className=""
                 >{item.author} </h1>
-                <h1 className=" revealUp"> {item.title}</h1>
+                <h1 className=" "> {item.title}</h1>
               </div>
 
               <div
                 style={{ zIndex: 1 }}
                 className="position-absolute small-credits revealUp">
-                <h4 className="revealUp">{item.s_author}
+                <h4 className="">{item.s_author}
                 </h4>
-                <h4 className="revealUp">{item.s_contents}</h4>
+                <h4 className="">{item.s_contents}</h4>
               </div>
-
-              <div >
+              <div>
                 <Image className="position-absolute  start-50 translate-middle v-playbtn"
                   src={playIcon} alt="play icon..." />
               </div>
