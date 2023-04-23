@@ -30,8 +30,9 @@ header a:hover {
 
 @media (min-width: 768px) {
   header h1 {
-    font-size: 50px;
+    font-size: 76px;
     font-weight: 800;
+    font-family: 'Optima Pro Bold';
   }
 
   header a {

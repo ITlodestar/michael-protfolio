@@ -26,9 +26,9 @@ const homedata = {
   producer: [
     { title: "Ciscero", contents: "function", link: "https://www.youtube.com/watch?v=OXe66eyFdoc" },
     { title: "Def Jam", contents: "i am beau young prince", link: "https://www.youtube.com/watch?v=V-RCCp7Fljs" },
-    { title: "Lady Oflo", contents: "jealous", link: "https://vimeo.com/321125295" },
+    { title: "Lady Oflo", contents: "jealous", link: "https://vimeo.com/321125295", href: "Jealous" },
     { title: "Beau Young Prince", contents: "kill moe", link: "https://www.youtube.com/watch?v=KSn9kYluxOw" },
-    { title: "Obioma", contents: "spring ‘17", link: "https://vimeo.com/221483710" },
+    { title: "Obioma", contents: "spring ‘17", link: "https://vimeo.com/221483710", href: "Obioma" },
     { title: "Nwar Club", contents: "everybody drinks wine", link: " https://vimeo.com/284630098" },
     { title: "TBD Distillery", contents: "why we make whiskey", link: "https://www.youtube.com/watch?v=HhxzCrkPwE8&t=4s" },
   ],
@@ -75,7 +75,8 @@ const Imagesection = ({ Items, setPreview, preview, SetDisplayvideo }) => {
         onClick={() => SetDisplayvideo(1)}
         className="w-75 m-4 d-flex justify-content-center"
         data-aos-duration="2000"
-        data-aos="zoom-in">
+        data-aos="zoom-in"
+        href={`#${item.id}`}>
         {item.id === preview ?
           <video
             autoPlay
@@ -94,14 +95,51 @@ const Imagesection = ({ Items, setPreview, preview, SetDisplayvideo }) => {
     </div>
   ))
 };
+// ======Scroll : Start====== //
+var delta = 100;
+var ctrlInterval;
 
+const setDeltaLimit = () => {
+  document.querySelector(".title").style.transform = `translateY(${delta}%)`;
+  if (delta < -150) {
+    delta = 100;
+  } else if (delta > 100) {
+    delta = -150;
+  }
+}
+
+const titleLoop = () => {
+  ctrlInterval = setInterval(() => {
+    if (window.location.pathname == '/') {
+      setDeltaLimit();
+    }
+    delta -= 0.5;
+  }, 20);
+}
+
+document.body.onload = () => {
+  titleLoop();
+};
+
+const onScrollWheel = (event) => {
+  delta -= event.deltaY / 20
+  setDeltaLimit();
+}
+
+const onScrollEnter = (event) => {
+  clearInterval(ctrlInterval);
+}
+
+const onScrollLeave = (event) => {
+  titleLoop();
+}
+// ======Scroll : End====== //
 
 function Homepage() {
   const [preview, setPreview] = useState(0);
   const [displayvideo, SetDisplayvideo] = useState(0);
   const titleRef = useRef(null);
   const [currentTransform, setCurrentTransform] = useState(0);
-
 
   useEffect(() => {
 
@@ -113,10 +151,10 @@ function Homepage() {
 
       ScrollTrigger.create({
         trigger: elem,
-        start: 'top center',
-        end: '+=250',
+        start: "center center",
+        end: "bottom top",
         scroller: "#video-section",
-        scrub: 6,
+        scrub: 1,
 
         onEnter: function () {
           gsap.to(
@@ -133,13 +171,13 @@ function Homepage() {
         onLeave: function () {
           gsap.to(
             elem,
-            { opacity: 0.0001, y: '50%', rotation: '0deg', ease: 'power4.inOut', duration: 1.2, stagger: 0.01, delay: 5 }
+            { opacity: 0.0001, y: '50%', rotation: '0deg', ease: 'power4.inOut', duration: 1.2, stagger: 0.01, delay: 2 }
           );
         },
         onLeaveBack: function () {
           gsap.to(
             elem,
-            { opacity: 0.0001, y: '50%', rotation: '0deg', ease: 'power4.inOut', duration: 1.2, stagger: 0.01, delay: 5 }
+            { opacity: 0.0001, y: '50%', rotation: '0deg', ease: 'power4.inOut', duration: 1.2, stagger: 0.01, delay: 2 }
           );
         }
       });
@@ -188,30 +226,27 @@ function Homepage() {
   //           }
   //         );
   //       }
-  //     });
+  //     });this is ========
   //   });
   // }, [])
 
-  const onWheel = (even) => {
-    const translateY = window.getComputedStyle(titleRef.current).transform.match(/(-?[0-9\.]+)/g)[5];
-    setCurrentTransform(parseFloat(translateY) - parseFloat(even.deltaY / 10));
-  }
+
 
   return (
     <>
       <div className="d-md-flex align-items-center justify-content-center">
-        <div className="center-col">
-          <div
-            ref={titleRef}
-            style={{ transform: `translateY(${currentTransform}px)` }}
-            onWheel={(e) => onWheel(e)} >
+        <div className="center-col"
+          ref={titleRef}
+          onWheel={(e) => onScrollWheel(e)}
+          onMouseEnter={(e) => onScrollEnter(e)}
+          onMouseLeave={(e) => onScrollLeave(e)}>
+          <div>
             <div className="d-md-block w-100 text-center title">
               <h3 className="py-4">Producer</h3>
               <Titlesection Items={homedata.producer} />
               <h3 className="py-4">Assistant Director</h3>
               <Titlesection Items={homedata.assistant} />
             </div>
-
           </div>
         </div>
         <div className="images d-flex flex-column order-md-first ">

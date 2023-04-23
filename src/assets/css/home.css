@@ -1,13 +1,17 @@
 .title h5 {
-  font-size: 24px;
+  font-size: 30px;  
+  font-family: 'Optima Pro Bold';
 }
 
 .title p {
-  font-size: 18px;
+  font-size: 20px;
+  font-family: 'Optima Pro Roman';
 }
 
 
-
+.center-col {
+  overflow: hidden;
+}
 
 .images img {
   opacity: 0.9 !important;
@@ -19,12 +23,18 @@
 }
 
 .title {
-  animation: move 10s linear infinite;
+  /* animation: move 10s infinite; */
 }
 
+/* .title-run {
+  animation-play-state: running !important;
+}
+.title-reverse {
+  animation-direction: reverse;
+} */
 
-.title:hover {
-  animation-play-state: paused;
+.center-col>div:hover .title {
+  /* animation-play-state: paused; */
 }
 
 .video-title:hover {
@@ -33,7 +43,7 @@
 
 @media (min-width: 768px) {
   .center-col {
-    min-width: 510px;
+    min-width: 550px;
   }
 }
 
@@ -45,7 +55,7 @@
   }
 
   .center-col {
-    min-width: auto;
+    min-width: auto;  
   }
 
   .title h5 {
@@ -58,7 +68,7 @@
 
 }
 
-@keyframes move {
+/* @keyframes move {
   from {
     transform: translateY(100%);
   }
@@ -66,7 +76,7 @@
   to {
     transform: translateY(-150%);
   }
-}
+} */
 
 /* /// Videos model */
 .v-small-title {
@@ -180,6 +190,7 @@
 
   .title-video-md .large-title h1 {
     font-size: 90px;
+    font-family: 'Optima Pro Roman';
   }
 
   .title-video-md .small-credits {
@@ -189,5 +200,6 @@
 
   .title-video-md .small-credits h4 {
     font-size: 22px;
+    font-family: 'Optima Pro Roman';
   }
 }

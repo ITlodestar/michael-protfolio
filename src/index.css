@@ -25,18 +25,30 @@
 }
 
 @font-face {
-  font-family: 'Optima Pro';
-  src: url('./assets/font/OptimaLTPro-BoldItalic.eot');
-  src: local('./assets/font/Optima Pro Bold Italic'), local('./assets/font/OptimaLTPro-BoldItalic'),
-    url('./assets/font/OptimaLTPro-BoldItalic.eot?#iefix') format('embedded-opentype'),
-    url('./assets/font/OptimaLTPro-BoldItalic.woff2') format('woff2'),
-    url('./assets/font/OptimaLTPro-BoldItalic.woff') format('woff'),
-    url('./assets/font/OptimaLTPro-BoldItalic.ttf') format('truetype');
+  font-family: 'Optima Pro Bold';
+  src: url('./assets/font/OptimaLTPro-Bold.eot');
+  src: local('./assets/font/Optima Pro Bold'), local('./assets/font/OptimaLTPro-Bold'),
+    url('./assets/font/OptimaLTPro-Bold.eot?#iefix') format('embedded-opentype'),
+    url('./assets/font/OptimaLTPro-Bold.woff2') format('woff2'),
+    url('./assets/font/OptimaLTPro-Bold.woff') format('woff'),
+    url('./assets/font/OptimaLTPro-Bold.ttf') format('truetype');
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Optima Pro Bold Italic';
+  src: url('./assets/font/OptimaLTPro-BlackItalic.eot');
+  src: local('./assets/font/Optima Pro Bold BlackItalic'), local('./assets/font/OptimaLTPro-BlackItalic'),
+    url('./assets/font/OptimaLTPro-BlackItalic.eot?#iefix') format('embedded-opentype'),
+    url('./assets/font/OptimaLTPro-BlackItalic.woff2') format('woff2'),
+    url('./assets/font/OptimaLTPro-BlackItalic.woff') format('woff'),
+    url('./assets/font/OptimaLTPro-BlackItalic.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
   --color-white: #fff;
@@ -147,6 +159,11 @@ body {
     font-size: 22px;
   }
 }
+@media (max-width: 991px) {
+  header h1 {
+    font-size: 5vw !important;
+  }
+}
 
 @keyframes movevideo {
   0% {
@@ -248,8 +265,6 @@ footer {
 }
 
 .producernyc {
-  font-family: 'Optima Pro';
-  font-weight: bold;
-  font-style: italic;
+  font-family: 'Optima Pro Bold Italic';
   font-size: 24px;
 }
