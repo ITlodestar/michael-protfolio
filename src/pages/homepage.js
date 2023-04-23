@@ -95,7 +95,7 @@ const Imagesection = ({ Items, setPreview, preview, SetDisplayvideo }) => {
     </div>
   ))
 };
-// ======Scroll : Start====== //
+// ======Scroll : Start========= //
 var delta = 100;
 var ctrlInterval;
 
