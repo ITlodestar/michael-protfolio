@@ -88,7 +88,7 @@ const Imagesection = ({ Items, setPreview, preview, SetDisplayvideo }) => {
           <img
             src={item.imagepath}
             alt=""
-            className="w-100 me-3"
+            className="w-50 me-3"
           />
         }
       </a>
@@ -100,7 +100,7 @@ var delta = 100;
 var ctrlInterval;
 
 const setDeltaLimit = () => {
-  document.querySelector(".title").style.transform = `translateY(${delta}%)`;
+  document.querySelector(".title").style.transform = `translateY(${delta}vh)`;
   if (delta < -150) {
     delta = 100;
   } else if (delta > 100) {
@@ -109,12 +109,12 @@ const setDeltaLimit = () => {
 }
 
 const titleLoop = () => {
-  ctrlInterval = setInterval(() => {
-    if (window.location.pathname == '/') {
+  if (window.location.pathname == '/') {
+    ctrlInterval = setInterval(() => {
       setDeltaLimit();
-    }
-    delta -= 0.5;
-  }, 20);
+      delta -= 0.5;
+    }, 20);
+  }
 }
 
 document.body.onload = () => {
@@ -122,7 +122,8 @@ document.body.onload = () => {
 };
 
 const onScrollWheel = (event) => {
-  delta -= event.deltaY / 20
+  clearInterval(ctrlInterval);
+  delta -= event.deltaY / 20;
   setDeltaLimit();
 }
 
@@ -131,6 +132,7 @@ const onScrollEnter = (event) => {
 }
 
 const onScrollLeave = (event) => {
+  clearInterval(ctrlInterval);
   titleLoop();
 }
 // ======Scroll : End====== //
@@ -141,7 +143,7 @@ function Homepage() {
   const titleRef = useRef(null);
   const [currentTransform, setCurrentTransform] = useState(0);
 
-  useEffect(() => {
+  /*useEffect(() => {
 
     gsap.registerPlugin(ScrollTrigger);
     gsap.set(document.querySelectorAll('.section-video .revealUp'), { opacity: 0.0001, y: '100%' });
@@ -182,7 +184,42 @@ function Homepage() {
         }
       });
     });
-  });
+  });*/
+
+  /*const useShowAnimation = (reversible = false, showLine = 150) => {
+    const showRef = useRef(null);
+    const [show, setShow] = useState(false);
+
+    useLayoutEffect(() => {
+        const targetPosition = showRef.current.getBoundingClientRect().top;
+
+        // Show items that are already in the viewport
+        if (targetPosition < window.innerHeight) {
+            setShow(true);
+        }
+
+        const onScroll = () => {
+            const doc = document.documentElement;
+            const offset = doc.scrollTop + window.innerHeight;
+            const height = doc.offsetHeight;
+
+            const scrollPosition =
+                window.scrollY + window.innerHeight - showLine;
+
+            if (targetPosition < scrollPosition || offset >= height) {
+                
+            } else if (scrollPosition < targetPosition && reversible) {
+                
+            }
+        };
+
+        window.addEventListener("scroll", onScroll);
+
+        return () => window.removeEventListener("scroll", onScroll);
+    }, []);
+
+    return [show, showRef];
+  };*/
 
   // useLayoutEffect(() => {
   //   gsap.registerPlugin(ScrollTrigger);
@@ -238,10 +275,10 @@ function Homepage() {
         <div className="center-col"
           ref={titleRef}
           onWheel={(e) => onScrollWheel(e)}
-          onMouseEnter={(e) => onScrollEnter(e)}
           onMouseLeave={(e) => onScrollLeave(e)}>
-          <div>
-            <div className="d-md-block w-100 text-center title">
+          <div className="pt-3">
+            <div className="d-md-block w-100 text-center title"
+              onMouseEnter={(e) => onScrollEnter(e)}>
               <h3 className="py-4">Producer</h3>
               <Titlesection Items={homedata.producer} />
               <h3 className="py-4">Assistant Director</h3>
