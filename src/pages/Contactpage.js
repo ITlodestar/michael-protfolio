@@ -24,7 +24,7 @@ function Contactpage() {
                     </p>
                     <p>You can reach him at  <a href="mailto:michael@michaelbloom.tv">michael@michaelbloom.tv</a></p>
                 </div>
-                <div className="mt-5 d-flex">
+                <div className="mt-5 d-flex" style={{zIndex: 999}}>
                     <a href="/Resume/Michael Bloom 2023.pdf " target="_blank" className="d-flex align-items-end"><Image src={iconResume} width={30} className="ms-2" /></a>
                     <a href="https://www.linkedin.com/in/michaelbloomny/" target="_blank" className="d-flex align-items-end"><Image src={iconLinkedin} width={30} className="ms-2" /></a>
                     <a href="https://www.instagram.com/michaelbloom__/" target="_blank" className="d-flex align-items-end"><Image src={iconInstagram} width={30} className="ms-2" /></a>

@@ -1,7 +1,9 @@
 header {
   z-index: 2;
   position: fixed;
-  background: black;
+}
+header>div {
+  background-color: black;
 }
 
 header h1 {

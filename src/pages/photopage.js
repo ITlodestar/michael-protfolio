@@ -49,32 +49,44 @@ function Photopage() {
 
   const assetListRef = useRef(null);
 
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      handleScroll();
-    }, 80);
-    return () => clearInterval(intervalId);
-  }, []);
+  // useEffect(() => {
+  //   const intervalId = setInterval(() => {
+  //     handleScroll();
+  //   }, 80);
+  //   return () => clearInterval(intervalId);
+  // }, []);
 
   const handleScroll = () => {
     const assetList = assetListRef.current;
     console.log(assetList.scrollLeft);
-    if (scrollPosition === 0 )
+    if (scrollPosition === 0)
       assetList.scrollLeft += 50
   };
+
+  const onMouseWheel = (event) => {
+    const element = document.querySelector("#container");
+    event.preventDefault();
+
+    element.scrollBy({
+      left: event.deltaY < 0 ? -300 : 300,
+
+    });
+  }
+
 
   return (
     <div className="">
       <div className="px-5">
-        <div className="d-none d-md-block " > 
-          <div className="d-flex w-100 assetList"
+        <div className="d-none d-md-block " >
+          <div className="d-flex w-100 assetList" id="container"
             ref={assetListRef}
             style={{ overflowX: 'scroll' }}
             onMouseOver={() => setScrollPosition(1)}
-            onMouseLeave={() => setScrollPosition(0)} >
+            onMouseLeave={() => setScrollPosition(0)} 
+            onWheel={(e) => onMouseWheel(e) } >
             {
               images.photos.map((item) => (
-                <Image style={{ height: 600 }} className="p-2" key={item.path} src={item.path} alt="" />
+                <Image style={{ height: '65vh' }} className="p-2" key={item.path} src={item.path} alt="" />
               ))
             }
           </div>

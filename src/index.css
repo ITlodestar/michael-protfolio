@@ -127,7 +127,7 @@ body {
 }
 
 .w-110 {
-  width: 100%;
+  width: 50%;
   transition: 0.3s ease-in-out;
 }
 
@@ -259,7 +259,7 @@ footer {
   height:80px;
   position: fixed;
   bottom: 0;
-  width: 100%;
+  width:  82%;
   background-color: #000;
   z-index: 90;
 }
