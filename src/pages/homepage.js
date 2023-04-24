@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useLayoutEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Image } from "react-bootstrap";
 
 import img1 from '../assets/img/Landing Page/Prada Spring_Summer _Thumbnail.jpg';
@@ -38,13 +38,13 @@ const homedata = {
     { title: "J. ember", contents: "bargain flights", link: "https://www.youtube.com/watch?v=YZ46fS1OxPU" },
   ],
   images_l: [
-    { id: 1, imagepath: img1, videopath: video1 },
-    { id: 2, imagepath: img2, videopath: video2 },
-    { id: 3, imagepath: img3, videopath: video3 },
+    { id: 1, imagepath: img1, videopath: video1, author: "Prada" },
+    { id: 2, imagepath: img2, videopath: video2, author: "J. Ember" },
+    { id: 3, imagepath: img3, videopath: video3, author: "Fight Camp" },
   ],
   images_r: [
-    { id: 4, imagepath: img4, videopath: video4 },
-    { id: 5, imagepath: img5, videopath: video5 },
+    { id: 4, imagepath: img4, videopath: video4, author: "BYP" },
+    { id: 5, imagepath: img5, videopath: video5, author: "Jealous" },
   ]
 }
 
@@ -76,7 +76,7 @@ const Imagesection = ({ Items, setPreview, preview, SetDisplayvideo }) => {
         className="w-75 m-4 d-flex justify-content-center"
         data-aos-duration="2000"
         data-aos="zoom-in"
-        href={`#${item.id}`}>
+        href={`#${item.author}`}>
         {item.id === preview ?
           <video
             autoPlay
@@ -135,15 +135,14 @@ const onScrollLeave = (event) => {
   clearInterval(ctrlInterval);
   titleLoop();
 }
-// ======Scroll : End====== //
+
 
 function Homepage() {
   const [preview, setPreview] = useState(0);
   const [displayvideo, SetDisplayvideo] = useState(0);
   const titleRef = useRef(null);
-  const [currentTransform, setCurrentTransform] = useState(0);
 
-  /*useEffect(() => {
+  useEffect(() => {
 
     gsap.registerPlugin(ScrollTrigger);
     gsap.set(document.querySelectorAll('.section-video .revealUp'), { opacity: 0.0001, y: '100%' });
@@ -184,90 +183,7 @@ function Homepage() {
         }
       });
     });
-  });*/
-
-  /*const useShowAnimation = (reversible = false, showLine = 150) => {
-    const showRef = useRef(null);
-    const [show, setShow] = useState(false);
-
-    useLayoutEffect(() => {
-        const targetPosition = showRef.current.getBoundingClientRect().top;
-
-        // Show items that are already in the viewport
-        if (targetPosition < window.innerHeight) {
-            setShow(true);
-        }
-
-        const onScroll = () => {
-            const doc = document.documentElement;
-            const offset = doc.scrollTop + window.innerHeight;
-            const height = doc.offsetHeight;
-
-            const scrollPosition =
-                window.scrollY + window.innerHeight - showLine;
-
-            if (targetPosition < scrollPosition || offset >= height) {
-                
-            } else if (scrollPosition < targetPosition && reversible) {
-                
-            }
-        };
-
-        window.addEventListener("scroll", onScroll);
-
-        return () => window.removeEventListener("scroll", onScroll);
-    }, []);
-
-    return [show, showRef];
-  };*/
-
-  // useLayoutEffect(() => {
-  //   gsap.registerPlugin(ScrollTrigger);
-
-  //   // REVEAL // 
-  //   gsap.utils.toArray(".revealUp").forEach(function (elem) {
-
-  //     ScrollTrigger.create({
-  //       trigger: elem,
-  //       start: 'top center',
-  //       end: '+=250',
-  //       scroller: "#video-section",
-  //       scrub: 6,
-
-  //       onEnter: function () {
-  //         gsap.fromTo(
-  //           elem,
-  //           {
-  //             autoAlpha: 0,
-  //             transform: `translateY(50%)`,
-  //             opacity: 0.0001, y: '200%', rotation: '3deg'
-
-  //           },
-  //           {
-  //             transform: `translateY(0%)`,
-  //             autoAlpha: 1
-  //           }
-  //         );
-  //       },
-  //       onLeaveBack: function () {
-  //         gsap.fromTo(
-  //           elem,
-
-  //           {
-  //             autoAlpha: 1,
-  //             transform: `translateY(0%)`
-  //           },
-  //           {
-  //             transform: `translateY(50%)`,
-  //             autoAlpha: 0
-  //           }
-  //         );
-  //       }
-  //     });this is ========
-  //   });
-  // }, [])
-
-
+  });
 
   return (
     <>
