@@ -116,10 +116,22 @@ body {
   height: 60px !important;
 }
 
-.revealUp {
-  opacity: 0;
+.show-animation {
+  translate: none;
+  rotate: none;
+  scale: none;
+  transform: translate(0px, 0px);
 }
 
+.hidden-animation {
+  transform: translate(0px, 100px);
+}
+
+.revealUp span {
+  display: block;
+  overflow: hidden;
+  transition: all .7s;
+}
 
 .start-50-100 {
   bottom: 0;
@@ -150,8 +162,9 @@ body {
   .overflow-md-hidden {
     overflow: hidden;
   }
+
   .start-50-100 {
-    bottom: 0;  
+    bottom: 0;
     left: calc(100% - 250px);
   }
 
@@ -159,6 +172,7 @@ body {
     font-size: 22px;
   }
 }
+
 @media (max-width: 991px) {
   header h1 {
     font-size: 5vw !important;
@@ -256,10 +270,10 @@ body {
 }
 
 footer {
-  height:80px;
+  height: 80px;
   position: fixed;
   bottom: 0;
-  width:  82%;
+  width: 82%;
   background-color: #000;
   z-index: 90;
 }

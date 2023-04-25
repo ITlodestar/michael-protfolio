@@ -82,8 +82,8 @@ function Photopage() {
             ref={assetListRef}
             style={{ overflowX: 'scroll' }}
             onMouseOver={() => setScrollPosition(1)}
-            onMouseLeave={() => setScrollPosition(0)} 
-            onWheel={(e) => onMouseWheel(e) } >
+            onMouseLeave={() => setScrollPosition(0)}
+            onWheel={(e) => onMouseWheel(e)} >
             {
               images.photos.map((item) => (
                 <Image style={{ height: '65vh' }} className="p-2" key={item.path} src={item.path} alt="" />

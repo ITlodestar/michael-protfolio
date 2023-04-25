@@ -106,14 +106,15 @@
 }
 
 .section-video {
-
   position: relative;
   padding: 0;
   overflow: hidden;
+  height: 100%;
 }
 
 .section-video .bg-video {
   transition: transform 1s var(--easing-authentic-motion), opacity .3s var(--easing-authentic-motion);
+  height: 100%;
 }
 
 .section-video .bg-video:hover {
@@ -128,7 +129,9 @@
   width: 85%;
   background-color: black;
 }
-
+.title-video-md {
+  height: 568px;
+}
 .title-video-md .large-title {
   position: static;
 }

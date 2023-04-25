@@ -19,8 +19,6 @@ import Videopage from "./Videopage";
 
 import exitbutton from "../assets/Icons/ExitButton.png";
 
-import { gsap } from "gsap";
-import ScrollTrigger from 'gsap/ScrollTrigger'
 
 const homedata = {
   producer: [
@@ -68,7 +66,7 @@ const Imagesection = ({ Items, setPreview, preview, SetDisplayvideo }) => {
 
   return Items.map((item) => (
     <div
-      className={item.id % 2 == 0 ? "d-flex justify-content-start justify-content-md-center" : "d-flex justify-content-end justify-content-md-center"} key={item.id}>
+      className={item.id % 2 === 0 ? "d-flex justify-content-start justify-content-md-center" : "d-flex justify-content-end justify-content-md-center"} key={item.id}>
       <a
         onMouseEnter={() => setPreview(item.id)}
         onMouseLeave={() => setPreview(0)}
@@ -109,7 +107,7 @@ const setDeltaLimit = () => {
 }
 
 const titleLoop = () => {
-  if (window.location.pathname == '/') {
+  if (window.location.pathname === '/') {
     ctrlInterval = setInterval(() => {
       setDeltaLimit();
       delta -= 0.5;
@@ -117,9 +115,9 @@ const titleLoop = () => {
   }
 }
 
-document.body.onload = () => {
-  titleLoop();
-};
+// document.body.onload = () => {
+//   titleLoop();
+// };
 
 const onScrollWheel = (event) => {
   clearInterval(ctrlInterval);
@@ -143,47 +141,58 @@ function Homepage() {
   const titleRef = useRef(null);
 
   useEffect(() => {
+    if (displayvideo) {
+      console.log('effect');
+      clearInterval(ctrlInterval);
+      delta = 100;
+      document.querySelector(".title").style.transform = `translateY(${delta}vh)`;
+    } else {
+      titleLoop();
+    }
+  }, [displayvideo]);
 
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.set(document.querySelectorAll('.section-video .revealUp'), { opacity: 0.0001, y: '100%' });
-    gsap.set(document.querySelectorAll('.section-video'), { opacity: 1 });
-    // REVEAL // 
-    gsap.utils.toArray(".revealUp").forEach(function (elem) {
+  // useEffect(() => {
 
-      ScrollTrigger.create({
-        trigger: elem,
-        start: "center center",
-        end: "bottom top",
-        scroller: "#video-section",
-        scrub: 1,
+  //   gsap.registerPlugin(ScrollTrigger);
+  //   gsap.set(document.querySelectorAll('.section-video .revealUp'), { opacity: 0.0001, y: '100%' });
+  //   gsap.set(document.querySelectorAll('.section-video'), { opacity: 1 });
+  //   // REVEAL // 
+  //   gsap.utils.toArray(".revealUp").forEach(function (elem) {
 
-        onEnter: function () {
-          gsap.to(
-            elem,
-            { opacity: 1, y: '0%', ease: 'power4.inOut', duration: 1.2, stagger: 0.01 }
-          );
-        },
-        onEnterBack: function () {
-          gsap.to(
-            elem,
-            { opacity: 1, y: '0%', ease: 'power4.inOut', duration: 1.2, stagger: 0.01 }
-          );
-        },
-        onLeave: function () {
-          gsap.to(
-            elem,
-            { opacity: 0.0001, y: '50%', rotation: '0deg', ease: 'power4.inOut', duration: 1.2, stagger: 0.01, delay: 2 }
-          );
-        },
-        onLeaveBack: function () {
-          gsap.to(
-            elem,
-            { opacity: 0.0001, y: '50%', rotation: '0deg', ease: 'power4.inOut', duration: 1.2, stagger: 0.01, delay: 2 }
-          );
-        }
-      });
-    });
-  });
+  //     ScrollTrigger.create({
+  //       trigger: elem,
+  //       start: "center center",
+  //       end: "bottom top",
+  //       scroller: "#video-section",
+  //       scrub: 1,
+
+  //       onEnter: function () {
+  //         gsap.to(
+  //           elem,
+  //           { opacity: 1, y: '0%', ease: 'power4.inOut', duration: 1.2, stagger: 0.01 }
+  //         );
+  //       },
+  //       onEnterBack: function () {
+  //         gsap.to(
+  //           elem,
+  //           { opacity: 1, y: '0%', ease: 'power4.inOut', duration: 1.2, stagger: 0.01 }
+  //         );
+  //       },
+  //       onLeave: function () {
+  //         gsap.to(
+  //           elem,
+  //           { opacity: 0.0001, y: '50%', rotation: '0deg', ease: 'power4.inOut', duration: 1.2, stagger: 0.01, delay: 2 }
+  //         );
+  //       },
+  //       onLeaveBack: function () {
+  //         gsap.to(
+  //           elem,
+  //           { opacity: 0.0001, y: '50%', rotation: '0deg', ease: 'power4.inOut', duration: 1.2, stagger: 0.01, delay: 2 }
+  //         );
+  //       }
+  //     });
+  //   });
+  // });
 
   return (
     <>
