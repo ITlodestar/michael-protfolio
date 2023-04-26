@@ -42,9 +42,9 @@ const useShowAnimation = (reversible = false, showLine = 568) => {
       const scrollPosition = e.target.scrollTop + window.innerHeight;
       const removescroll = scrollPosition - 40;
       let showindex = 0, hiddenindex = 0;
-      console.log(scrollPosition);
-      console.log(everyheightvideos[0]);
-      console.log("------");
+     
+      console.log(everyheightvideos);
+
       for (let index = 0; index < everyheightvideos.length; index++) {
         if (everyheightvideos[index] < removescroll) {
           hiddenindex = index + 1;
@@ -105,15 +105,16 @@ function Videopage() {
     const { current: divs } = divRefs;
     const container = document.getElementById('container-v');
     const containerTop = container.getBoundingClientRect().top;
+    console.log(containerTop);
     divs.forEach((div) => {
       const { top, bottom } = div.getBoundingClientRect();
-      everyheightvideos.push(bottom);
+      everyheightvideos.push(bottom - containerTop);
       // console.log(`Div ${div.getAttribute('id')} - Top: ${bottom}, OffsetTop: ${offsetTop}`);
     });
   }
-  // useEffect(() => {
-  //   getheights();
-  // }, [windowWidth]);
+  useEffect(() => {
+    getheights();
+  }, [windowWidth]);
 
   useEffect(() => {
     getheights();
@@ -135,7 +136,7 @@ function Videopage() {
       <h3 className="text-center py-3 v-small-title">michael bloom</h3>
       {
         images.video.map((item, index) => (
-          <div ref={(el) => divRefs.current[index] = el} className={"ps-3 d-flex align-items-center title-video-md " + item.key} key={item.path} id={index}>
+          <div ref={(el) => divRefs.current[index] = el} className={"ps-3 d-flex align-items-center title-video-md " + item.key} key={item.path} id={item.id}>
             <div className={item.first ? "cursor-pointer section-video pe-0 w-100 py-4" : "cursor-pointer section-video w-100 py-4"} >
               <h1 className="revealUp large-title"
                 style={{ left: `10%`, bottom: `15%`, zIndex: 1 }}>

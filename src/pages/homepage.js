@@ -47,7 +47,7 @@ const homedata = {
 }
 
 
-const Titlesection = ({ Items , SetDisplayvideo}) => (
+const Titlesection = ({ Items, SetDisplayvideo }) => (
   Items.map((item) => (
     <a href={`#${item.videolink}`} key={item.title} onClick={() => SetDisplayvideo(1)} className="text-decoration-none  text-light ">
       <div className="video-title d-flex row p-1 fkex-md-flex align-items-center justify-content-center">
@@ -65,8 +65,7 @@ const Titlesection = ({ Items , SetDisplayvideo}) => (
 const Imagesection = ({ Items, setPreview, preview, SetDisplayvideo }) => {
 
   return Items.map((item) => (
-    <div
-      className={item.id % 2 === 0 ? "d-flex justify-content-start justify-content-md-center" : "d-flex justify-content-end justify-content-md-center"} key={item.id}>
+    <div className={item.id % 2 === 0 ? "d-flex justify-content-start justify-content-md-center" : "d-flex justify-content-end justify-content-md-center"} key={item.id}>
       <a
         onMouseEnter={() => setPreview(item.id)}
         onMouseLeave={() => setPreview(0)}
@@ -94,8 +93,8 @@ const Imagesection = ({ Items, setPreview, preview, SetDisplayvideo }) => {
   ))
 };
 // ======Scroll : Start========= //
-var delta = 100;
-var ctrlInterval;
+let delta = 100;
+let ctrlInterval;
 
 const setDeltaLimit = () => {
   document.querySelector(".title").style.transform = `translateY(${delta}vh)`;
@@ -169,10 +168,18 @@ function Homepage() {
           </div>
         </div>
         <div className="images d-flex flex-column order-md-first ">
-          <Imagesection Items={homedata.images_l} setPreview={setPreview} preview={preview} SetDisplayvideo={SetDisplayvideo} />
+          <Imagesection
+            Items={homedata.images_l}
+            setPreview={setPreview}
+            preview={preview}
+            SetDisplayvideo={SetDisplayvideo} />
         </div>
         <div className="images d-flex flex-column">
-          <Imagesection Items={homedata.images_r} setPreview={setPreview} preview={preview} SetDisplayvideo={SetDisplayvideo} />
+          <Imagesection
+            Items={homedata.images_r}
+            setPreview={setPreview}
+            preview={preview}
+            SetDisplayvideo={SetDisplayvideo} />
         </div>
       </div>
       <div id="video-section" className={displayvideo ? "v-display v-show" : "v-display"} >
