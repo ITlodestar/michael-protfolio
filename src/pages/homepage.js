@@ -147,6 +147,7 @@ function Homepage() {
       delta = 100;
       document.querySelector(".title").style.transform = `translateY(${delta}vh)`;
     } else {
+      clearInterval(ctrlInterval);
       titleLoop();
     }
   }, [displayvideo]);
