@@ -120,7 +120,9 @@
 .section-video .bg-video:hover {
   opacity: .7;
 }
-
+.w-68 {
+  width: 68%;
+}
 .videopage {
   position: absolute;
   top: 1px;
@@ -130,7 +132,7 @@
   background-color: black;
 }
 .title-video-md {
-  height: 568px;
+  /* height: 568px; */
 }
 .title-video-md .large-title {
   position: static;

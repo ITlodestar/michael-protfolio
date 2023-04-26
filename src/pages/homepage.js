@@ -22,18 +22,18 @@ import exitbutton from "../assets/Icons/ExitButton.png";
 
 const homedata = {
   producer: [
-    { title: "Ciscero", contents: "function", link: "https://www.youtube.com/watch?v=OXe66eyFdoc" },
-    { title: "Def Jam", contents: "i am beau young prince", link: "https://www.youtube.com/watch?v=V-RCCp7Fljs" },
-    { title: "Lady Oflo", contents: "jealous", link: "https://vimeo.com/321125295", href: "Jealous" },
-    { title: "Beau Young Prince", contents: "kill moe", link: "https://www.youtube.com/watch?v=KSn9kYluxOw" },
-    { title: "Obioma", contents: "spring ‘17", link: "https://vimeo.com/221483710", href: "Obioma" },
-    { title: "Nwar Club", contents: "everybody drinks wine", link: " https://vimeo.com/284630098" },
-    { title: "TBD Distillery", contents: "why we make whiskey", link: "https://www.youtube.com/watch?v=HhxzCrkPwE8&t=4s" },
+    { title: "Ciscero", contents: "function", link: "https://www.youtube.com/watch?v=OXe66eyFdoc", videolink: "ciscero" },
+    { title: "Def Jam", contents: "i am beau young prince", link: "https://www.youtube.com/watch?v=V-RCCp7Fljs", videolink: "killMoe" },
+    { title: "Lady Oflo", contents: "jealous", link: "https://vimeo.com/321125295", videolink: "Jealous" },
+    { title: "Beau Young Prince", contents: "kill moe", link: "https://www.youtube.com/watch?v=KSn9kYluxOw", videolink: "BYP" },
+    { title: "Obioma", contents: "spring ‘17", link: "https://vimeo.com/221483710", videolink: "Obioma" },
+    { title: "Nwar Club", contents: "everybody drinks wine", link: " https://vimeo.com/284630098", videolink: "everybody" },
+    { title: "TBD Distillery", contents: "why we make whiskey", link: "https://www.youtube.com/watch?v=HhxzCrkPwE8&t=4s", videolink: "Whiskey" },
   ],
   assistant: [
-    { title: "Fight Camp", contents: "this is fight camp", link: "https://www.youtube.com/watch?v=zu1wq8IjAIc" },
-    { title: "Prada", contents: "spring / summer ‘19", link: "https://vimeo.com/337688483" },
-    { title: "J. ember", contents: "bargain flights", link: "https://www.youtube.com/watch?v=YZ46fS1OxPU" },
+    { title: "Fight Camp", contents: "this is fight camp", link: "https://www.youtube.com/watch?v=zu1wq8IjAIc", videolink: "fightcamp" },
+    { title: "Prada", contents: "spring / summer ‘19", link: "https://vimeo.com/337688483", videolink: "prada" },
+    { title: "J. ember", contents: "bargain flights", link: "https://www.youtube.com/watch?v=YZ46fS1OxPU", videolink: "jember" },
   ],
   images_l: [
     { id: 1, imagepath: img1, videopath: video1, author: "Prada" },
@@ -47,9 +47,9 @@ const homedata = {
 }
 
 
-const Titlesection = ({ Items }) => (
+const Titlesection = ({ Items , SetDisplayvideo}) => (
   Items.map((item) => (
-    <a href={item.link} key={item.title} className="text-decoration-none  text-light ">
+    <a href={`#${item.videolink}`} key={item.title} onClick={() => SetDisplayvideo(1)} className="text-decoration-none  text-light ">
       <div className="video-title d-flex row p-1 fkex-md-flex align-items-center justify-content-center">
         <div className="col-6 text-end">
           <h5 className="fw-bold d-flex justify-content-end m-0 p-0 align-items-center">{item.title}</h5>
@@ -86,7 +86,7 @@ const Imagesection = ({ Items, setPreview, preview, SetDisplayvideo }) => {
           <img
             src={item.imagepath}
             alt=""
-            className="w-50 me-3"
+            className="w-68 me-3"
           />
         }
       </a>
@@ -115,9 +115,6 @@ const titleLoop = () => {
   }
 }
 
-// document.body.onload = () => {
-//   titleLoop();
-// };
 
 const onScrollWheel = (event) => {
   clearInterval(ctrlInterval);
@@ -141,58 +138,18 @@ function Homepage() {
   const titleRef = useRef(null);
 
   useEffect(() => {
+    console.log(displayvideo);
     if (displayvideo) {
       console.log('effect');
       clearInterval(ctrlInterval);
       delta = 100;
       document.querySelector(".title").style.transform = `translateY(${delta}vh)`;
     } else {
+      clearInterval(ctrlInterval);
       titleLoop();
     }
   }, [displayvideo]);
 
-  // useEffect(() => {
-
-  //   gsap.registerPlugin(ScrollTrigger);
-  //   gsap.set(document.querySelectorAll('.section-video .revealUp'), { opacity: 0.0001, y: '100%' });
-  //   gsap.set(document.querySelectorAll('.section-video'), { opacity: 1 });
-  //   // REVEAL // 
-  //   gsap.utils.toArray(".revealUp").forEach(function (elem) {
-
-  //     ScrollTrigger.create({
-  //       trigger: elem,
-  //       start: "center center",
-  //       end: "bottom top",
-  //       scroller: "#video-section",
-  //       scrub: 1,
-
-  //       onEnter: function () {
-  //         gsap.to(
-  //           elem,
-  //           { opacity: 1, y: '0%', ease: 'power4.inOut', duration: 1.2, stagger: 0.01 }
-  //         );
-  //       },
-  //       onEnterBack: function () {
-  //         gsap.to(
-  //           elem,
-  //           { opacity: 1, y: '0%', ease: 'power4.inOut', duration: 1.2, stagger: 0.01 }
-  //         );
-  //       },
-  //       onLeave: function () {
-  //         gsap.to(
-  //           elem,
-  //           { opacity: 0.0001, y: '50%', rotation: '0deg', ease: 'power4.inOut', duration: 1.2, stagger: 0.01, delay: 2 }
-  //         );
-  //       },
-  //       onLeaveBack: function () {
-  //         gsap.to(
-  //           elem,
-  //           { opacity: 0.0001, y: '50%', rotation: '0deg', ease: 'power4.inOut', duration: 1.2, stagger: 0.01, delay: 2 }
-  //         );
-  //       }
-  //     });
-  //   });
-  // });
 
   return (
     <>
@@ -205,9 +162,9 @@ function Homepage() {
             <div className="d-md-block w-100 text-center title"
               onMouseEnter={(e) => onScrollEnter(e)}>
               <h3 className="py-4">Producer</h3>
-              <Titlesection Items={homedata.producer} />
+              <Titlesection Items={homedata.producer} SetDisplayvideo={SetDisplayvideo} />
               <h3 className="py-4">Assistant Director</h3>
-              <Titlesection Items={homedata.assistant} />
+              <Titlesection Items={homedata.assistant} SetDisplayvideo={SetDisplayvideo} />
             </div>
           </div>
         </div>
