@@ -157,7 +157,9 @@ body {
 .hover-display:hover .pdf-display {
   display: inline !important;
 }
-
+.hover-display img {
+  height: 100%;
+}
 @media (min-width: 768px) {
   .overflow-md-hidden {
     overflow: hidden;
