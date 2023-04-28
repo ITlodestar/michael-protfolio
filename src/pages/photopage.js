@@ -78,6 +78,7 @@ function Photopage() {
     };
   }, []);
   
+
   return (
     <div className="">
       <div className="px-5">
