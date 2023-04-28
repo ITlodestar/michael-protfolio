@@ -44,26 +44,29 @@ function App() {
         ballon === 1 ? (
           <div
             style={{ zIndex: -1 }}
-            className='position-absolute start-50-100  translate-middle'>
+            className='position-fixed start-50-100 d-flex'>
             <video
               autoPlay
               muted
               loop
+              className='position-fixed'
               id='bg-video'>
               <source src="/Balloon.mp4" type="video/mp4" />
             </video>
+            <div></div>
+            { window.location.pathname === '/photos'? <></>: <h2 className='producernyc'>producer<br></br>nyc</h2> }
           </div>) : (
 
           <div
-            className="position-fixed  start-50-100 image-btn d-flex align-items-end"
+            className="position-fixed start-50-100 d-flex align-items-end"
             style={{ zIndex: 99 }}>
             <Image
               id='ballon'
               src={ballonimg}
-              style={{ paddingBottom: 24 }}
+              style={{ paddingBottom: 50 }}
               onClick={() => PlayBallon()}
               className={window.location.pathname === '/photos' ? "d-none" : "d-inline"} />
-            <h2 className='producernyc'>producer<br></br>nyc</h2>
+            { window.location.pathname === '/photos'? <></>: <h2 className='producernyc'>producer<br></br>nyc</h2> }
           </div>
         )
       }

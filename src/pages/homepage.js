@@ -36,13 +36,13 @@ const homedata = {
     { title: "J. ember", contents: "bargain flights", link: "https://www.youtube.com/watch?v=YZ46fS1OxPU", videolink: "jember" },
   ],
   images_l: [
-    { id: 1, imagepath: img1, videopath: video1, author: "Prada" },
-    { id: 2, imagepath: img2, videopath: video2, author: "J. Ember" },
-    { id: 3, imagepath: img3, videopath: video3, author: "Fight Camp" },
+    { id: 1, imagepath: img1, videopath: video1, author: "prada", position: {width: '400px', left: '-50px' } },
+    { id: 2, imagepath: img2, videopath: video2, author: "jember", position: {width: '350px'} },
+    { id: 3, imagepath: img3, videopath: video3, author: "fightcamp", position: {width: '600px'} },
   ],
   images_r: [
-    { id: 4, imagepath: img4, videopath: video4, author: "BYP" },
-    { id: 5, imagepath: img5, videopath: video5, author: "Jealous" },
+    { id: 4, imagepath: img4, videopath: video4, author: "BYP", position: {width: '400px', right: '50px'} },
+    { id: 5, imagepath: img5, videopath: video5, author: "Jealous", position: {width: '500px', right: '50px'} },
   ]
 }
 
@@ -63,17 +63,19 @@ const Titlesection = ({ Items, SetDisplayvideo }) => (
 );
 
 const Imagesection = ({ Items, setPreview, preview, SetDisplayvideo }) => {
-
+  console.log(Items);
   return Items.map((item) => (
-    <div className={item.id % 2 === 0 ? "d-flex justify-content-start justify-content-md-center" : "d-flex justify-content-end justify-content-md-center"} key={item.id}>
+    
+    <div className={item.id % 2 === 0 ? "d-flex justify-content-start justify-content-md-center position-relative" : "d-flex justify-content-end justify-content-md-center position-relative"} key={item.id}>
       <a
         onMouseEnter={() => setPreview(item.id)}
         onMouseLeave={() => setPreview(0)}
         onClick={() => SetDisplayvideo(1)}
-        className="w-75 m-4 d-flex justify-content-center"
+        className="mb-4 d-flex justify-content-center position-relative"
         data-aos-duration="2000"
         data-aos="zoom-in"
-        href={`#${item.author}`}>
+        href={`#${item.author}`}
+        style={ window.innerWidth > 768? item.position: { width: '75%'}}>
         {item.id === preview ?
           <video
             autoPlay
@@ -152,7 +154,7 @@ function Homepage() {
 
   return (
     <>
-      <div className="d-md-flex align-items-center justify-content-center">
+      <div className="d-md-flex justify-content-center">
         <div className="center-col"
           ref={titleRef}
           onWheel={(e) => onScrollWheel(e)}
@@ -160,21 +162,21 @@ function Homepage() {
           <div className="pt-3">
             <div className="d-md-block w-100 text-center title"
               onMouseEnter={(e) => onScrollEnter(e)}>
-              <h3 className="py-4">Producer</h3>
+              <h3 className="pt-4">Producer</h3>
               <Titlesection Items={homedata.producer} SetDisplayvideo={SetDisplayvideo} />
-              <h3 className="py-4">Assistant Director</h3>
+              <h3 className="pt-4">Assistant Director</h3>
               <Titlesection Items={homedata.assistant} SetDisplayvideo={SetDisplayvideo} />
             </div>
           </div>
         </div>
-        <div className="images d-flex flex-column order-md-first ">
+        <div className="images d-flex flex-column order-md-first image-l">
           <Imagesection
             Items={homedata.images_l}
             setPreview={setPreview}
             preview={preview}
             SetDisplayvideo={SetDisplayvideo} />
         </div>
-        <div className="images d-flex flex-column">
+        <div className="images d-flex flex-column image-r">
           <Imagesection
             Items={homedata.images_r}
             setPreview={setPreview}

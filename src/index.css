@@ -83,7 +83,7 @@ body {
 /* Contact page */
 
 .contactpage .content p {
-  font-size: 20px;
+  font-size: 18px;
 }
 
 
@@ -139,12 +139,12 @@ body {
 }
 
 .w-110 {
-  width: 50%;
+  width: 80%;
   transition: 0.3s ease-in-out;
 }
 
 .w-110:hover {
-  width: 110%;
+  width: 120%;
 }
 
 
@@ -161,17 +161,31 @@ body {
   height: 100%;
 }
 @media (min-width: 768px) {
+  .image-slider {
+    left: -15%;
+    right: -15%;
+  }
   .overflow-md-hidden {
     overflow: hidden;
   }
 
   .start-50-100 {
     bottom: 0;
-    left: calc(100% - 250px);
+    right: 120px;
+    left: auto !important;
   }
 
   .contactpage .content p {
-    font-size: 22px;
+    font-size: 20px;
+  }
+  .image-l {
+    position: absolute !important;
+    left: -120px;
+  }
+  .image-r {
+    position: absolute !important;
+    right: -150px;
+    top: 220px;
   }
 }
 
@@ -179,16 +193,20 @@ body {
   header h1 {
     font-size: 5vw !important;
   }
+  .container {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
 }
 
 @keyframes movevideo {
   0% {
-    transform: translateY(90%);
+    transform: translateY(100%);
   }
 
-  20% {
-    transform: translateY(87%);
-  }
+  /* 20% {
+    transform: translateY(30%);
+  } */
 
   100% {
     transform: translateY(0%);
@@ -197,6 +215,8 @@ body {
 
 #bg-video {
   animation: movevideo 5s linear infinite;
+  bottom: 480px;
+  right: -90px;
 }
 
 .videoheader {
@@ -282,5 +302,24 @@ footer {
 
 .producernyc {
   font-family: 'Optima Pro Bold Italic';
-  font-size: 24px;
+  font-size: 20px;
+  text-align: right;
+  z-index: 100;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #000000;
+  -webkit-border-radius: 7px;
+  border-radius: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 7px;
+  border-radius: 7px;
+  background: #6d6d6d; 
 }

@@ -39,7 +39,7 @@ const useShowAnimation = (reversible = false, showLine = 568) => {
 
     const onScroll = (e) => {
 
-      const scrollPosition = e.target.scrollTop + window.innerHeight;
+      const scrollPosition = e.target.scrollTop + window.innerHeight + 250;
       const removescroll = scrollPosition - 40;
       let showindex = 0, hiddenindex = 0;
      
@@ -156,7 +156,7 @@ function Videopage() {
                 <span><span className="hidden-animation">{item.s_contents}</span></span>
               </div>
               <div>
-                <a className="" href={item.link}>
+                <a className="" href={item.link} target="_blank">
                   <Image className="position-absolute start-50 translate-middle v-playbtn"
                     src={playIcon} alt="play icon..." />
                 </a>

@@ -192,14 +192,15 @@
 
   .title-video-md .large-title {
     position: absolute;
-  }
-
-  .title-video-md .large-title h1 {
-    font-size: 90px;
+    font-size: 100px !important;
     font-family: 'Optima Pro Roman';
   }
+/* 
+  .title-video-md .large-title h1 {
+  } */
 
   .title-video-md .small-credits {
+    font-size: 25px;
     right: 9% !important;
     bottom: 9% !important;
   }
