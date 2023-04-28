@@ -1,0 +1,16 @@
+body {margin:2rem;}
+
+.modal-dialog {
+      max-width: 800px;
+      margin: 30px auto;
+  }
+
+.modal-body {
+  position:relative;
+  padding:0px;
+}
+.btn-close {
+  position:absolute;
+  right:-30px;
+  top:0;
+}

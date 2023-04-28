@@ -80,8 +80,8 @@ function Photopage() {
   
 
   return (
-    <div className="">
-      <div className="px-5">
+    <div className="position-absolute image-slider">
+      <div>
         <div className="d-none d-md-block " >
           <div className="d-flex w-100 assetList" id="container"
             ref={assetListRef}
@@ -91,7 +91,7 @@ function Photopage() {
             onWheel={(e) => onMouseWheel(e)} >
             {
               images.photos.map((item) => (
-                <Image style={{ height: '60vh' }} className="p-2" key={item.path} src={item.path} alt="" />
+                <Image style={{ height: '75vh' }} className="p-2" key={item.path} src={item.path} alt="" />
               ))
             }
           </div>
