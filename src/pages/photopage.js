@@ -64,8 +64,8 @@ function Photopage() {
   };
 
   const onMouseWheel = (event) => {
+    
     const element = document.querySelector("#container");
-
     element.scrollBy({
       left: event.deltaY < 0 ? 300 : -300,
     });
@@ -91,7 +91,7 @@ function Photopage() {
             onWheel={(e) => onMouseWheel(e)} >
             {
               images.photos.map((item) => (
-                <Image style={{ height: '65vh' }} className="p-2" key={item.path} src={item.path} alt="" />
+                <Image style={{ height: '60vh' }} className="p-2" key={item.path} src={item.path} alt="" />
               ))
             }
           </div>
