@@ -43,7 +43,7 @@ const useShowAnimation = (reversible = false, showLine = 568) => {
       const removescroll = scrollPosition - 40;
       let showindex = 0, hiddenindex = 0;
      
-      console.log(everyheightvideos);
+      // console.log(everyheightvideos);
 
       for (let index = 0; index < everyheightvideos.length; index++) {
         if (everyheightvideos[index] < removescroll) {
@@ -55,7 +55,7 @@ const useShowAnimation = (reversible = false, showLine = 568) => {
           break;
         }
       }
-      console.log("showindex", showindex);
+      // console.log("showindex", showindex);
       if (showindex > 0) {
         setTimeout(() => {
           let selector = ".video" + Math.floor(showindex) + " .revealUp span>span";

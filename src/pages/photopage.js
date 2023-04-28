@@ -65,15 +65,19 @@ function Photopage() {
 
   const onMouseWheel = (event) => {
     const element = document.querySelector("#container");
-    event.preventDefault();
 
     element.scrollBy({
-      left: event.deltaY < 0 ? -300 : 300,
-
+      left: event.deltaY < 0 ? 300 : -300,
     });
   }
 
-
+  useEffect(() => {
+    document.getElementById("container").addEventListener("wheel", onMouseWheel);
+    return () => {
+      document.getElementById("container").removeEventListener("wheel", onMouseWheel);
+    };
+  }, []);
+  
   return (
     <div className="">
       <div className="px-5">
