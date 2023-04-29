@@ -153,7 +153,7 @@
 .v-playbtn {
   width: 25px;
   height: 25px;
-  z-index: 1;
+  z-index: 3;
   top: 60%;
 }
 
@@ -176,7 +176,7 @@
   .v-playbtn {
     width: 55px;
     height: 55px;
-    z-index: 1;
+    z-index: 3;
     top: 50%;
   }
 
