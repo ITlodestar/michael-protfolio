@@ -63,7 +63,6 @@ const Titlesection = ({ Items, SetDisplayvideo }) => (
 );
 
 const Imagesection = ({ Items, setPreview, preview, SetDisplayvideo }) => {
-  console.log(Items);
   return Items.map((item) => (
     
     <div className={item.id % 2 === 0 ? "d-flex justify-content-start justify-content-md-center position-relative" : "d-flex justify-content-end justify-content-md-center position-relative"} key={item.id}>
@@ -139,9 +138,7 @@ function Homepage() {
   const titleRef = useRef(null);
 
   useEffect(() => {
-    console.log(displayvideo);
     if (displayvideo) {
-      console.log('effect');
       clearInterval(ctrlInterval);
       delta = 100;
       document.querySelector(".title").style.transform = `translateY(${delta}vh)`;

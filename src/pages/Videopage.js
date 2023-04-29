@@ -109,7 +109,6 @@ function Videopage() {
     const { current: divs } = divRefs;
     const container = document.getElementById('container-v');
     const containerTop = container.getBoundingClientRect().top;
-    console.log(containerTop);
     divs.forEach((div) => {
       const { top, bottom } = div.getBoundingClientRect();
       everyheightvideos.push(bottom - containerTop);
@@ -130,10 +129,8 @@ function Videopage() {
 
   const startPlayVideo = (e) => {
     let videoID = e.currentTarget.dataset.video;
-    console.log(videoID)
     setPlayVideo(videoID);
     setVideoHeight(document.getElementById(videoID).height);
-    console.log(document.getElementById(videoID).height)
   }
 
   useEffect(() => {

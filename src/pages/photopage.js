@@ -58,7 +58,6 @@ function Photopage() {
 
   const handleScroll = () => {
     const assetList = assetListRef.current;
-    console.log(assetList.scrollLeft);
     if (scrollPosition === 0)
       assetList.scrollLeft += 50
   };
