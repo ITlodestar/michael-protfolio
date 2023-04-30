@@ -5,7 +5,6 @@ function Header() {
     const [videocenter, SetVideocenter] = useState(0);
     useEffect(() => {
         if (window.location.pathname == '/videos') {
-            console.log('sdf');
             SetVideocenter(1);
         }
     }, [])

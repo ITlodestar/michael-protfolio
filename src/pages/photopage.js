@@ -58,18 +58,21 @@ function Photopage() {
 
   const handleScroll = () => {
     const assetList = assetListRef.current;
-    console.log(assetList.scrollLeft);
     if (scrollPosition === 0)
       assetList.scrollLeft += 50
   };
 
   const onMouseWheel = (event) => {
-    
     const element = document.querySelector("#container");
-    element.scrollBy({
-      left: event.deltaY < 0 ? 300 : -300,
-    });
-  }
+    const wheelDistance = event.deltaY;
+    const isMac = navigator.platform.toUpperCase().indexOf("MAC") >= 0;
+  
+    if (isMac) {
+      element.scrollLeft += wheelDistance > 0 ? 300 : -300;
+    } else {
+      element.scrollLeft += wheelDistance < 0 ? 300 : -300;
+    }
+  };
 
   useEffect(() => {
     document.getElementById("container").addEventListener("wheel", onMouseWheel);

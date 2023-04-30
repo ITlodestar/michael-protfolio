@@ -63,7 +63,6 @@ const Titlesection = ({ Items, SetDisplayvideo }) => (
 );
 
 const Imagesection = ({ Items, setPreview, preview, SetDisplayvideo }) => {
-  console.log(Items);
   return Items.map((item) => (
     
     <div className={item.id % 2 === 0 ? "d-flex justify-content-start justify-content-md-center position-relative" : "d-flex justify-content-end justify-content-md-center position-relative"} key={item.id}>
@@ -118,19 +117,19 @@ const titleLoop = () => {
 
 
 const onScrollWheel = (event) => {
-  clearInterval(ctrlInterval);
+  // clearInterval(ctrlInterval);
   delta -= event.deltaY / 20;
   setDeltaLimit();
 }
 
-const onScrollEnter = (event) => {
-  clearInterval(ctrlInterval);
-}
+// const onScrollEnter = (event) => {
+//   clearInterval(ctrlInterval);
+// }
 
-const onScrollLeave = (event) => {
-  clearInterval(ctrlInterval);
-  titleLoop();
-}
+// const onScrollLeave = (event) => {
+//   clearInterval(ctrlInterval);
+//   titleLoop();
+// }
 
 
 function Homepage() {
@@ -139,9 +138,7 @@ function Homepage() {
   const titleRef = useRef(null);
 
   useEffect(() => {
-    console.log(displayvideo);
     if (displayvideo) {
-      console.log('effect');
       clearInterval(ctrlInterval);
       delta = 100;
       document.querySelector(".title").style.transform = `translateY(${delta}vh)`;
@@ -151,17 +148,16 @@ function Homepage() {
     }
   }, [displayvideo]);
 
-
+// wheel => mouseLeave
+// Producer over tag => mouseEnter
   return (
     <>
       <div className="d-md-flex justify-content-center">
         <div className="center-col"
           ref={titleRef}
-          onWheel={(e) => onScrollWheel(e)}
-          onMouseLeave={(e) => onScrollLeave(e)}>
+          onWheel={(e) => onScrollWheel(e) }>
           <div className="pt-3">
-            <div className="d-md-block w-100 text-center title"
-              onMouseEnter={(e) => onScrollEnter(e)}>
+            <div className="d-md-block w-100 text-center title">
               <h3 className="pt-4">Producer</h3>
               <Titlesection Items={homedata.producer} SetDisplayvideo={SetDisplayvideo} />
               <h3 className="pt-4">Assistant Director</h3>

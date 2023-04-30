@@ -101,15 +101,14 @@ function Videopage() {
   const [showChild, childRef] = useShowAnimation(true);
   const divRefs = useRef([]);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const [playVideo, setPlayVideo] = useState('none');
-  const [videoHeight, setVideoHeight] = useState(0);
-  const [isHovering, setIsHovering] = useState(false);
+  // const [playVideo, setPlayVideo] = useState('none');
+  // const [videoHeight, setVideoHeight] = useState(0);
+  // const [isHovering, setIsHovering] = useState(false);
 
   const getheights = () => {
     const { current: divs } = divRefs;
     const container = document.getElementById('container-v');
     const containerTop = container.getBoundingClientRect().top;
-    console.log(containerTop);
     divs.forEach((div) => {
       const { top, bottom } = div.getBoundingClientRect();
       everyheightvideos.push(bottom - containerTop);
@@ -128,13 +127,11 @@ function Videopage() {
     setWindowWidth(window.innerWidth);
   };
 
-  const startPlayVideo = (e) => {
-    let videoID = e.currentTarget.dataset.video;
-    console.log(videoID)
-    setPlayVideo(videoID);
-    setVideoHeight(document.getElementById(videoID).height);
-    console.log(document.getElementById(videoID).height)
-  }
+  // const startPlayVideo = (e) => {
+  //   let videoID = e.currentTarget.dataset.video;
+  //   setPlayVideo(videoID);
+  //   setVideoHeight(document.getElementById(videoID).height);
+  // }
 
   useEffect(() => {
     window.addEventListener('resize', handleResize);
@@ -167,7 +164,7 @@ function Videopage() {
 
                 <span><span className="hidden-animation">{item.s_contents}</span></span>
               </div>
-              {
+              {/* {
                 item.id === playVideo ?
                   <div className="video-container">
                     <div>
@@ -186,8 +183,7 @@ function Videopage() {
                       onMouseLeave={() => setIsHovering(false)}
                       className="image-video rounded-3 p-3"
                       style={{ height: `${videoHeight}px` }}>
-                      <source src={ item.link } type="video/mp4" />
-                      {/* <source src="/Balloon.mp4" type="video/mp4" /> */}
+                      <source src={ item.link } type="video/mp4" />                      
                     </video>
                   </div>
                   :
@@ -200,8 +196,14 @@ function Videopage() {
                     </div>
                     <Image src={item.path} id={item.id} className="bg-video rounded-3 p-3" style={{ width: `97%` }} />
                   </>
-              }
-
+              } */}
+              <div>
+                <a className="" href={item.link} data-video={item.id} target="_blank">
+                  <Image className="position-absolute start-50 translate-middle v-playbtn"
+                    src={playIcon} alt="play icon..." />
+                </a>
+              </div>
+              <Image src={item.path} id={item.id} className="bg-video rounded-3 p-3" style={{ width: `97%` }} />
             </div>
           </div>
         ))
@@ -209,7 +211,7 @@ function Videopage() {
       <div style={{ height: 400 }}>
 
       </div>
-    </div>
+    </div >
   );
 }
 
