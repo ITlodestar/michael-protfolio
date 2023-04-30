@@ -112,7 +112,10 @@
   overflow: hidden;
   height: 100%;
 }
-
+.px-5 {
+  padding-right: 3rem!important;
+  padding-left: 4rem!important;
+}
 .section-video .bg-video {
   transition: transform 1s var(--easing-authentic-motion), opacity .3s var(--easing-authentic-motion);
   height: 100%;
@@ -122,7 +125,7 @@
   opacity: .7;
 }
 .w-68 {
-  width: 68%;
+  width: 75%;
 }
 .videopage {
   position: absolute;

@@ -34,7 +34,7 @@ function App() {
 
 
   return (
-    <div className='container bg-animation position-relative' >
+    <div className='px-5 bg-animation position-relative' >
       <div className='caption position-relative'>
         <Header />
         <div style={{ paddingTop: 150 }}></div>
