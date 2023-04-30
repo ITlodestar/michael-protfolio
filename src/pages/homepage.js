@@ -117,6 +117,7 @@ const titleLoop = () => {
 
 
 const onScrollWheel = (event) => {
+  // clearInterval(ctrlInterval);
   delta -= event.deltaY / 20;
   setDeltaLimit();
 }
@@ -147,13 +148,14 @@ function Homepage() {
     }
   }, [displayvideo]);
 
-
+// wheel => mouseLeave
+// Producer over tag => mouseEnter
   return (
     <>
       <div className="d-md-flex justify-content-center">
         <div className="center-col"
           ref={titleRef}
-          onWheel={(e) => onScrollWheel(e)}>
+          onWheel={(e) => onScrollWheel(e) }>
           <div className="pt-3">
             <div className="d-md-block w-100 text-center title">
               <h3 className="pt-4">Producer</h3>
