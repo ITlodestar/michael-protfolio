@@ -63,24 +63,23 @@ function Photopage() {
   };
 
   const onMouseWheel = (event) => {
-    const element = document.getElementById ? document.getElementById("container") : document.all.container;
-    let wheelDistance = 0;
+    // const element = document.getElementById ? document.getElementById("container") : document.all.container;
+    // let wheelDistance = 0;
 
-    if (event.deltaY) {
-      wheelDistance = event.deltaY;
-    } else if (event.wheelDelta) {
-      wheelDistance = event.wheelDelta / -120;
-    } else if (event.detail) {
-      wheelDistance = event.detail * 40;
-    }
+    // if (event.deltaY) {
+    //   wheelDistance = event.deltaY;
+    // } else if (event.wheelDelta) {
+    //   wheelDistance = event.wheelDelta / -120;
+    // } else if (event.detail) {
+    //   wheelDistance = event.detail * 40;
+    // }
 
-    if (element) {
-      element.scrollLeft += wheelDistance < 0 ? 300 : -300;
-    }
-    // const element = document.getElementById("container");
-    // const wheelDistance = element.deltaY;
-    // console.log(wheelDistance > 0 ? 300 : -300);
-    // element.scrollLeft += wheelDistance > 0 ? 300 : -300;
+    // if (element) {
+    //   element.scrollLeft += wheelDistance < 0 ? 300 : -300;
+    // }
+    const element = document.getElementById("container");
+    const wheelDistance = event.deltaY;
+    element.scrollLeft += wheelDistance > 0 ? 300 : -300;
   };
 
   // useEffect(() => {
