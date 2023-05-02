@@ -140,11 +140,11 @@ body {
 
 .w-110 {
   width: 75%;
-  transition: 0.8s ease-in-out;
+  transition: 0.23s ease-in-out;
 }
 
 .w-110:hover {
-  width: 77%;
+  width: 78%;
 }
 
 
