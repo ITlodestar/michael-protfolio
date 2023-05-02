@@ -16,16 +16,16 @@ import exitIcon from "../assets/Icons/ExitButton-1.png";
 
 const images = {
   video: [
-    { key: "video1", path: image1, link: "https://www.youtube.com/watch?v=YZ46fS1OxPU", author: "J. Ember", title: "Bargain Flights", s_author: "Dir. Jackson Tisi", s_contents: "EP. Patrick Donovan", id: "jember" },
-    { key: "video2", path: image2, link: "https://player.vimeo.com/337688483", author: "Prada", title: "Spring Summer", s_author: "Dir. Matthew Dillon Cohen", s_contents: "EP. Patrick Donovan", id: "prada" },
-    { key: "video3", path: image3, link: "https://www.youtube.com/watch?v=OXe66eyFdoc", author: "Ciscero", title: "Function", s_author: "Prod. Omada Cinema", s_contents: "EP. Michael Bloom", id: "ciscero" },
-    { key: "video4", path: image4, link: "https://www.youtube.com/watch?v=zu1wq8IjAIc", author: "Fight Camp", title: "", s_author: "Dir. Tobias Nathan", s_contents: "EP. Emi Stewart", id: "fightcamp" },
-    { key: "video5", path: image5, link: "https://www.youtube.com/watch?v=KSn9kYluxOw", author: "I Am BYP", title: "Def Jam Records", s_author: "Prod. Omada Cinema", s_contents: "EP. Michael Bloom", id: "BYP" },
-    { key: "video6", path: image6, link: "https://www.youtube.com/watch?v=V-RCCp7Fljs", author: "Kill Moe", title: "Def Jam Records", s_author: "Prod. Omada Cinema", s_contents: "EP. Michael Bloom", id: "killMoe" },
-    { key: "video7", path: image7, link: "https://player.vimeo.com/321125295", author: "Jealous", title: "OFLO", s_author: "Prod. Omada Cinema", s_contents: "EP. Michael Bloom", id: "Jealous" },
-    { key: "video8", path: image8, link: "https://player.vimeo.com/284630098", author: "Everybody Drinks Wine", title: "Nwar Club", s_author: "Prod. Omada Cinema", s_contents: "EP. Michael Bloom", id: "everybody" },
-    { key: "video9", path: image9, link: "https://player.vimeo.com/221483710", author: "Obioma", title: "Spring Summer", s_author: "Prod. Omada Cinema", s_contents: "EP. Michael Bloom", id: "Obioma" },
-    { key: "video10", path: image10, link: "https://www.youtube.com/watch?v=HhxzCrkPwE8&t=4s", author: "Why We Make Whiskey", title: "Tabacco Barn Distillery", s_author: "Prod. Omada Cinema", s_contents: "EP. Michael Bloom", id: "Whiskey" },
+    { key: "video1", path: image1, link: "https://www.youtube.com/embed/YZ46fS1OxPU", author: "J. Ember", title: "Bargain Flights", s_author: "Dir. Jackson Tisi", s_contents: "EP. Patrick Donovan", id: "jember" },
+    { key: "video2", path: image2, link: "https://player.vimeo.com/video/337688483", author: "Prada", title: "Spring Summer", s_author: "Dir. Matthew Dillon Cohen", s_contents: "EP. Patrick Donovan", id: "prada" },
+    { key: "video3", path: image3, link: "https://www.youtube.com/embed/OXe66eyFdoc", author: "Ciscero", title: "Function", s_author: "Prod. Omada Cinema", s_contents: "EP. Michael Bloom", id: "ciscero" },
+    { key: "video4", path: image4, link: "https://www.youtube.com/embed/zu1wq8IjAIc", author: "Fight Camp", title: "", s_author: "Dir. Tobias Nathan", s_contents: "EP. Emi Stewart", id: "fightcamp" },
+    { key: "video5", path: image5, link: "https://www.youtube.com/embed/KSn9kYluxOw", author: "I Am BYP", title: "Def Jam Records", s_author: "Prod. Omada Cinema", s_contents: "EP. Michael Bloom", id: "BYP" },
+    { key: "video6", path: image6, link: "https://www.youtube.com/embed/V-RCCp7Fljs", author: "Kill Moe", title: "Def Jam Records", s_author: "Prod. Omada Cinema", s_contents: "EP. Michael Bloom", id: "killMoe" },
+    { key: "video7", path: image7, link: "https://player.vimeo.com/video/321125295", author: "Jealous", title: "OFLO", s_author: "Prod. Omada Cinema", s_contents: "EP. Michael Bloom", id: "Jealous" },
+    { key: "video8", path: image8, link: "https://player.vimeo.com/video/284630098", author: "Everybody Drinks Wine", title: "Nwar Club", s_author: "Prod. Omada Cinema", s_contents: "EP. Michael Bloom", id: "everybody" },
+    { key: "video9", path: image9, link: "https://player.vimeo.com/video/221483710", author: "Obioma", title: "Spring Summer", s_author: "Prod. Omada Cinema", s_contents: "EP. Michael Bloom", id: "Obioma" },
+    { key: "video10", path: image10, link: "https://www.youtube.com/embed/HhxzCrkPwE8&t=4s", author: "Why We Make Whiskey", title: "Tabacco Barn Distillery", s_author: "Prod. Omada Cinema", s_contents: "EP. Michael Bloom", id: "Whiskey" },
   ]
 }
 
@@ -179,7 +179,7 @@ function Videopage() {
                       onMouseEnter={() => setIsHovering(true)}
                       onMouseLeave={() => setIsHovering(false)}
                       className="image-video rounded-3 p-3"
-                      style={{ height: `${videoHeight}px` }} src={item.link + '?autoplay=1&mute=1'}>
+                      style={{ height: `${videoHeight}px` }} src={item.link + '?autoplay=1&mute=1&controls=1'}>
                     </iframe>
                     {/* <video
                       autoPlay
