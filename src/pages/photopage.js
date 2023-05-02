@@ -63,24 +63,33 @@ function Photopage() {
   };
 
   const onMouseWheel = (event) => {
-    const element = document.querySelector("#container");
-    const wheelDistance = event.deltaY;
-    const isMac = navigator.platform.toUpperCase().indexOf("MAC") >= 0;
-  
-    if (isMac) {
-      element.scrollLeft += wheelDistance > 0 ? 300 : -300;
-    } else {
+    const element = document.getElementById ? document.getElementById("container") : document.all.container;
+    let wheelDistance = 0;
+
+    if (event.deltaY) {
+      wheelDistance = event.deltaY;
+    } else if (event.wheelDelta) {
+      wheelDistance = event.wheelDelta / -120;
+    } else if (event.detail) {
+      wheelDistance = event.detail * 40;
+    }
+
+    if (element) {
       element.scrollLeft += wheelDistance < 0 ? 300 : -300;
     }
+    // const element = document.getElementById("container");
+    // const wheelDistance = element.deltaY;
+    // console.log(wheelDistance > 0 ? 300 : -300);
+    // element.scrollLeft += wheelDistance > 0 ? 300 : -300;
   };
 
-  useEffect(() => {
-    document.getElementById("container").addEventListener("wheel", onMouseWheel);
-    return () => {
-      document.getElementById("container").removeEventListener("wheel", onMouseWheel);
-    };
-  }, []);
-  
+  // useEffect(() => {
+  //   document.getElementById("container").addEventListener("wheel", onMouseWheel);
+  //   return () => {
+  //     document.getElementById("container").removeEventListener("wheel", onMouseWheel);
+  //   };
+  // }, []);
+
 
   return (
     <div className="position-absolute image-slider">
