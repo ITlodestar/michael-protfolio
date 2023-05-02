@@ -139,12 +139,12 @@ body {
 }
 
 .w-110 {
-  width: 80%;
-  transition: 0.3s ease-in-out;
+  width: 75%;
+  transition: 0.8s ease-in-out;
 }
 
 .w-110:hover {
-  width: 90%;
+  width: 77%;
 }
 
 

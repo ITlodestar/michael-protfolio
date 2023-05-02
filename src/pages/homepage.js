@@ -122,9 +122,9 @@ const onScrollWheel = (event) => {
   setDeltaLimit();
 }
 
-// const onScrollEnter = (event) => {
-//   clearInterval(ctrlInterval);
-// }
+const onScrollEnter = (event) => {
+  clearInterval(ctrlInterval);
+}
 
 // const onScrollLeave = (event) => {
 //   clearInterval(ctrlInterval);
@@ -135,12 +135,12 @@ const onScrollWheel = (event) => {
 function Homepage() {
   const [preview, setPreview] = useState(0);
   const [displayvideo, SetDisplayvideo] = useState(0);
+  const [currentDisplayState, setCurrentDisplayState] = useState(0);
   const titleRef = useRef(null);
 
   useEffect(() => {
     if (displayvideo) {
       clearInterval(ctrlInterval);
-      delta = 100;
       document.querySelector(".title").style.transform = `translateY(${delta}vh)`;
     } else {
       clearInterval(ctrlInterval);
@@ -157,7 +157,8 @@ function Homepage() {
           ref={titleRef}
           onWheel={(e) => onScrollWheel(e) }>
           <div className="pt-3">
-            <div className="d-md-block w-100 text-center title">
+            <div className="d-md-block w-100 text-center title"
+            onMouseEnter={(e) => onScrollEnter(e) }>
               <h3 className="pt-4">Producer</h3>
               <Titlesection Items={homedata.producer} SetDisplayvideo={SetDisplayvideo} />
               <h3 className="pt-4">Assistant Director</h3>
