@@ -37,7 +37,7 @@ function App() {
     <div className='px-5 bg-animation position-relative' >
       <div className="position-relative">
         <Header />
-        <div style={{ paddingTop: 150 }}></div>
+        <div style={ window.innerWidth > 768 ? { paddingTop: 150 }:{ paddingTop: 120 }}></div>
         <RouterProvider router={AllRoute} />
       </div>
       {

@@ -157,7 +157,7 @@ function Videopage() {
         images.video.map((item, index) => (
           <div id={item.id} ref={(el) => divRefs.current[index] = el} className={"ps-3 d-flex align-items-center title-video-md " + item.key} key={item.path}>
             <div className={item.first ? "cursor-pointer section-video pe-0 w-100 py-4" : "cursor-pointer section-video w-100 py-4"} >
-              <h1 className="revealUp large-title"
+              <h1 className="revealUp large-title px-3"
                 style={{ left: `10%`, bottom: `15%`, zIndex: 1 }}>
                 <span>
                   <span className="hidden-animation">{item.author}</span>
@@ -189,7 +189,7 @@ function Videopage() {
                       onMouseEnter={() => setIsHovering(true)}
                       onMouseLeave={() => setIsHovering(false)}
                       className="image-video rounded-3 p-3"
-                      style={{ height: `${videoHeight}px` }} src={item.link + '?autoplay=1&mute=0&controls=1'}
+                      style={{ height: `${videoHeight}px` }} src={item.link + '?autoplay=1&mute=0'}
                       allow="autoplay">
                     </iframe>
                     {/* <video
@@ -211,7 +211,7 @@ function Videopage() {
                           src={playIcon} alt="play icon..." />
                       </a>
                     </div>
-                    <Image src={item.path} className="bg-video rounded-3 p-3" style={{ width: `97%` }} />
+                    <Image src={item.path} className="bg-video rounded-3 pb-3 px-3" style={{ width: `97%` }} />
                   </>
               }
               {/* <div>
