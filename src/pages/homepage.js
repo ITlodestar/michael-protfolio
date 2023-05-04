@@ -36,13 +36,13 @@ const homedata = {
     { title: "J. ember", contents: "bargain flights", link: "https://www.youtube.com/watch?v=YZ46fS1OxPU", videolink: "jember" },
   ],
   images_l: [
-    { id: 1, imagepath: img1, videopath: video1, author: "prada", position: { width: '400px', left: '-50px' } },
-    { id: 2, imagepath: img2, videopath: video2, author: "jember", position: { width: '350px' } },
-    { id: 3, imagepath: img3, videopath: video3, author: "fightcamp", position: { width: '600px' } },
+    { id: 1, imagepath: img1, videopath: video1, author: "prada", width: { width: '300px'}, position: { left: 100, top: 0 } },
+    { id: 2, imagepath: img2, videopath: video2, author: "jember", width: { width: '260px'}, position: { left: 160, top: 200 } },
+    { id: 3, imagepath: img3, videopath: video3, author: "fightcamp", width: { width: '450px'}, position: { left: 85, top: 360 } },
   ],
   images_r: [
-    { id: 4, imagepath: img4, videopath: video4, author: "BYP", position: { width: '400px', right: '50px' } },
-    { id: 5, imagepath: img5, videopath: video5, author: "Jealous", position: { width: '500px', right: '50px' } },
+    { id: 4, imagepath: img4, videopath: video4, author: "BYP", width: { width: '300px'}, position: { right: 150, top: 0 } },
+    { id: 5, imagepath: img5, videopath: video5, author: "Jealous", width: { width: '375px'}, position: { right: 120, top: 200 } },
   ]
 }
 
@@ -62,20 +62,23 @@ const Titlesection = ({ Items, SetDisplayvideo }) => (
   ))
 );
 
+
 const Imagesection = ({ Items, setPreview, preview, SetDisplayvideo }) => {
   return Items.map((item) => (
 
-    <div className={item.id % 2 === 0 ? "d-flex justify-content-start justify-content-md-center position-relative" : "d-flex justify-content-end justify-content-md-center position-relative"} key={item.id}>
+    <div className={item.id % 2 === 0 ? "d-flex justify-content-start justify-content-md-center custom-position" : "d-flex justify-content-end justify-content-md-center custom-position"} 
+      key={item.id}
+      style={ window.innerWidth > 768 ? item.position: {} }>
       <a
         onMouseEnter={() => setPreview(item.id)}
         onMouseLeave={() => setPreview(0)}
-        onClick={() => SetDisplayvideo(1)}
-        className="mb-4 d-flex justify-content-center position-relative"
+        onClick={() => SetDisplayvideo(1) }
+        className={ item.id === 2 ? "d-flex justify-content-center position-relative": "mb-4 d-flex justify-content-center position-relative"}
         data-aos-duration="2000"
         data-aos="zoom-in"
         href={`#${item.author}`}
-        style={window.innerWidth > 768 ? item.position : { width: '75%' }}>
-        {item.id === preview ?
+        style={window.innerWidth > 768 ? item.width : { width: '75%' }}>
+        {item.id === preview || window.innerWidth <= 425 ?
           <video
             autoPlay
             muted
@@ -86,7 +89,8 @@ const Imagesection = ({ Items, setPreview, preview, SetDisplayvideo }) => {
           <img
             src={item.imagepath}
             alt=""
-            className="w-68 me-3"
+            className="w-68"
+            style={ item.id === 3? { marginTop: 35 }: {}}
           />
         }
       </a>

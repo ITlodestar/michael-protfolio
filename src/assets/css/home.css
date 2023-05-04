@@ -1,10 +1,10 @@
 .title h5 {
-  font-size: 30px;  
+  font-size: 22px;  
   font-family: 'Optima Pro Bold';
 }
 
 .title p {
-  font-size: 20px;
+  font-size: 19px;
   font-family: 'Optima Pro Roman';
 }
 
@@ -51,7 +51,6 @@
   .images img {
     width: 80% !important;
     margin-top: 30px !important;
-    margin-left: 30px !important;
   }
 
   .center-col {
@@ -112,10 +111,6 @@
   overflow: hidden;
   height: 100%;
 }
-.px-5 {
-  padding-right: 3rem!important;
-  padding-left: 4rem!important;
-}
 .section-video .bg-video {
   transition: transform 1s var(--easing-authentic-motion), opacity .3s var(--easing-authentic-motion);
   height: 100%;
@@ -125,7 +120,7 @@
   opacity: .7;
 }
 .w-68 {
-  width: 75%;
+  width: 100%;
 }
 .videopage {
   position: absolute;
@@ -182,7 +177,13 @@
     z-index: 3;
     top: 50%;
   }
-
+  #exit-icon {
+    width: 25px;
+    height:25px;
+    z-index: 3;
+    top: 12%;
+    right: 4% !important;
+  }
   #exit-video {
     left: calc(90vw + 20px);
     margin-top: -20px;
@@ -195,7 +196,7 @@
 
   .title-video-md .large-title {
     position: absolute;
-    font-size: 100px !important;
+    font-size: 90px !important;
     font-family: 'Optima Pro Roman';
   }
 /* 
@@ -211,5 +212,18 @@
   .title-video-md .small-credits h4 {
     font-size: 22px;
     font-family: 'Optima Pro Roman';
+  }
+}
+
+@media (max-width: 768px) {
+  .v-display {
+    background-color: black;
+  }
+}
+
+@media (min-width: 1200px)
+{
+  .h3, h3 {
+    font-size: 1.5rem;
   }
 }

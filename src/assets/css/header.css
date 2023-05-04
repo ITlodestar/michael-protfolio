@@ -1,6 +1,7 @@
 header {
   z-index: 2;
   position: fixed;
+  left: 0px !important;
 }
 
 header h1 {
@@ -57,5 +58,13 @@ header a:hover {
     margin-right: 0;
     flex-basis: 100%;
     order: 5;
+  }
+}
+@media (max-width: 768px) {
+  
+  #ballon {
+    position: absolute;
+    bottom: 20px;
+    padding-bottom: 0 !important;
   }
 }

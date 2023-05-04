@@ -99,7 +99,10 @@ function Photopage() {
             style={{ overflowX: 'scroll' }}
             onMouseOver={() => setScrollPosition(1)}
             onMouseLeave={() => setScrollPosition(0)}
-            onWheel={(e) => onMouseWheel(e)} >
+            onWheelCapture={(e) => onMouseWheel(e)}  
+            onMouseWheel={(e) => onMouseWheel(e)}
+            onWheel={(e) => onMouseWheel(e)}
+            onDOMMouseWheel={(e) => onMouseWheel(e)} >
             {
               images.photos.map((item) => (
                 <Image style={{ height: '75vh' }} className="p-2" key={item.path} src={item.path} alt="" />
@@ -112,7 +115,7 @@ function Photopage() {
       <div className="d-grid d-md-none">
         {
           images.photos.map((item) => (
-            <Image className="w-100 p-2" key={item.path} src={item.path} alt="" />
+            <Image className="w-100 p-2 photo-img" key={item.path} src={item.path} alt="" />
           ))
         }
       </div>

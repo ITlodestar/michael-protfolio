@@ -26,11 +26,11 @@ const image = {
 const Projectpage = () => {
   const [changeBtn, setChangeBtn] = useState(0);
   return (
-    <div className="position-relative p-5">
-      <div className="position-absolute  top-0  translate-middle" style={{ right: `20%` }}>
+    <div className="position-relative pt-5">
+      <div className="position-absolute  translate-middle control-img" style={{ right: `20%`, top: `20px` }}>
         <Image
           className="cursor-pointer"
-          src={changeBtn == 0 ? stackbtn : gallerybtn} width={50}
+          src={changeBtn == 0 ? stackbtn : gallerybtn} width={ window.innerWidth > 768? 50: 30 }
           onClick={() => setChangeBtn(changeBtn == 0 ? 1 : 0)} />
       </div>
       <div
@@ -40,7 +40,7 @@ const Projectpage = () => {
         {
           image.source.map((item) => (
             <div
-              className="hover-display col-12 col-md-4 p-3 position-relative"
+              className="hover-display col-12 col-md-4 p-3 position-relative project-img"
               key={item.id}>
               <Image
                 src={item.path} alt="..." className="w-100 " />

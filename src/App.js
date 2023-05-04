@@ -35,7 +35,7 @@ function App() {
 
   return (
     <div className='px-5 bg-animation position-relative' >
-      <div className='caption position-relative'>
+      <div className="position-relative">
         <Header />
         <div style={{ paddingTop: 150 }}></div>
         <RouterProvider router={AllRoute} />
@@ -44,7 +44,7 @@ function App() {
         ballon === 1 ? (
           <div
             style={{ zIndex: -1 }}
-            className='position-fixed start-50-100 d-flex'>
+            className='position-fixed start-50-100 d-flex align-items-end footer'>
             <video
               autoPlay
               muted
@@ -53,12 +53,11 @@ function App() {
               id='bg-video'>
               <source src="/Balloon.mp4" type="video/mp4" />
             </video>
-            <div></div>
             { window.location.pathname === '/photos'? <></>: <h2 className='producernyc'>producer<br></br>nyc</h2> }
           </div>) : (
 
           <div
-            className="position-fixed start-50-100 d-flex align-items-end"
+            className="position-fixed start-50-100 d-flex align-items-end footer"
             style={{ zIndex: 99 }}>
             <Image
               id='ballon'
