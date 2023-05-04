@@ -131,6 +131,8 @@ body {
   display: block;
   overflow: hidden;
   transition: all .7s;
+  z-index: 9999;
+  position: relative;
 }
 
 .start-50-100 {
@@ -139,12 +141,12 @@ body {
 }
 
 .w-110 {
-  width: 75%;
-  transition: 0.23s ease-in-out;
+  width: 100%;
+  transition: 0.7s ease;
 }
 
 .w-110:hover {
-  width: 78%;
+  transform: scale(1.1);
 }
 
 
@@ -160,7 +162,13 @@ body {
 .hover-display img {
   height: 100%;
 }
+.custom-position {
+  position: relative !important;
+}
 @media (min-width: 768px) {
+  .custom-position {
+    position: absolute !important;
+  }
   .image-slider {
     left: -15%;
     right: -15%;
@@ -188,34 +196,32 @@ body {
     top: 220px;
   }
 }
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 14vw !important;
+  }
+  .py-3 {
+    padding-bottom: 0 !important;
+  }
+  .caption {
+    position: absolute !important;
+    width: 100vw !important;
+    left: 0;
+    right: 0;
+  }
+  .photo-padding.p-5 {
+    padding: 0 !important;
+  }
+  .contact-img {
+    width: 100%;
+  }
+}
 
 @media (max-width: 991px) {
-  header h1 {
-    font-size: 5vw !important;
-  }
+  
   .container {
     padding-left: 0px !important;
     padding-right: 0px !important;
-  }
-}
-@media (max-width: 768px) {
-  .start-50-100 {
-    width: 100%;
-    position: relative !important;
-    left: 0;
-    display: block !important;
-  }
-  .start-50-100 h2 {
-    right: 20px;
-    bottom: 10px;
-    position: relative;
-    padding-top: 150px
-  }
-  .start-50-100 img {
-    position: absolute;
-    margin: auto;
-    left: 0;
-    right: 0;
   }
 }
 
@@ -318,6 +324,9 @@ body {
   .asset:last-child {
     margin-right: 0;
   }
+  .logo {
+    padding-left: 70px;
+  }
 }
 
 footer {
@@ -331,7 +340,7 @@ footer {
 
 .producernyc {
   font-family: 'Optima Pro Bold Italic';
-  font-size: 20px;
+  font-size: 17px;
   text-align: right;
   z-index: 100;
 }
@@ -351,4 +360,55 @@ footer {
   -webkit-border-radius: 7px;
   border-radius: 7px;
   background: #6d6d6d; 
+}
+
+@media (max-width: 768px) {
+  .start-50-100 {
+    width: 100%;
+    position: relative !important;
+    left: 0;
+    display: block !important;
+  }
+  .start-50-100 h2 {
+    right: 20px;
+    bottom: 10px;
+    position: relative;
+    padding-top: 150px
+  }
+  .start-50-100 img {
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+  }
+  .producernyc {
+    position: absolute !important;
+    padding: 0;    
+    right: 0px !important;
+    bottom: 0px !important;
+  }
+  .px-5 {
+    padding-right: 1rem!important;
+    padding-left: 1rem!important;
+  }
+
+  .footer {
+    padding: 100px;
+  }
+
+  #bg-video {
+    animation: movevideo 5s linear infinite;
+    bottom: 430px;
+    right: -150px;
+  }
+  .control-img {
+    right: -20px !important;
+    top: 20px !important;
+  }
+  .photo-img{
+    padding: 0.5rem 0 !important;
+  }
+  .project-img {
+    padding: 1rem 0 !important;
+  }
 }

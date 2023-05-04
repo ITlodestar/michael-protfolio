@@ -23,9 +23,9 @@ const images = {
     { key: "video5", path: image5, link: "https://www.youtube.com/embed/KSn9kYluxOw", author: "I Am BYP", title: "Def Jam Records", s_author: "Prod. Omada Cinema", s_contents: "EP. Michael Bloom", id: "BYP" },
     { key: "video6", path: image6, link: "https://www.youtube.com/embed/V-RCCp7Fljs", author: "Kill Moe", title: "Def Jam Records", s_author: "Prod. Omada Cinema", s_contents: "EP. Michael Bloom", id: "killMoe" },
     { key: "video7", path: image7, link: "https://player.vimeo.com/video/321125295", author: "Jealous", title: "OFLO", s_author: "Prod. Omada Cinema", s_contents: "EP. Michael Bloom", id: "Jealous" },
-    { key: "video8", path: image8, link: "https://player.vimeo.com/video/284630098", author: "Everybody Drinks Wine", title: "Nwar Club", s_author: "Prod. Omada Cinema", s_contents: "EP. Michael Bloom", id: "everybody" },
+    { key: "video8", path: image8, link: "https://player.vimeo.com/video/284630098", author: "", title: "Nwar Club", s_author: "Prod. Omada Cinema", s_contents: "EP. Michael Bloom", id: "everybody" },
     { key: "video9", path: image9, link: "https://player.vimeo.com/video/221483710", author: "Obioma", title: "Spring Summer", s_author: "Prod. Omada Cinema", s_contents: "EP. Michael Bloom", id: "Obioma" },
-    { key: "video10", path: image10, link: "https://www.youtube.com/embed/HhxzCrkPwE8&t=4s", author: "Why We Make Whiskey", title: "Tabacco Barn Distillery", s_author: "Prod. Omada Cinema", s_contents: "EP. Michael Bloom", id: "Whiskey" },
+    { key: "video10", path: image10, link: "https://www.youtube.com/embed/HhxzCrkPwE8&t=4s", author: "Tabacco Barn", title: "Distillery", s_author: "Prod. Omada Cinema", s_contents: "EP. Michael Bloom", id: "Whiskey" },
   ]
 }
 
@@ -40,13 +40,23 @@ const useShowAnimation = (reversible = false, showLine = 568) => {
 
     const onScroll = (e) => {
 
-      const scrollPosition = e.target.scrollTop + window.innerHeight + 250;
-      const removescroll = scrollPosition - 40;
+      let scrollPosition = e.target.scrollTop + window.innerHeight;
+      let removescroll = scrollPosition;
+      if (window.innerWidth < 768) {
+        scrollPosition -= 100;
+        removescroll -=  50;
+        console.log(everyheightvideos[9]);
+        console.log(scrollPosition);
+        console.log(removescroll);
+      } else {
+        console.log('hello');
+        scrollPosition += 190;
+        removescroll += 120;
+      }
       let showindex = 0, hiddenindex = 0;
 
-      // console.log(everyheightvideos);
-
       for (let index = 0; index < everyheightvideos.length; index++) {
+        
         if (everyheightvideos[index] < removescroll) {
           hiddenindex = index + 1;
         }
@@ -145,7 +155,7 @@ function Videopage() {
       <h3 className="text-center py-3 v-small-title">michael bloom</h3>
       {
         images.video.map((item, index) => (
-          <div ref={(el) => divRefs.current[index] = el} className={"ps-3 d-flex align-items-center title-video-md " + item.key} key={item.path}>
+          <div id={item.id} ref={(el) => divRefs.current[index] = el} className={"ps-3 d-flex align-items-center title-video-md " + item.key} key={item.path}>
             <div className={item.first ? "cursor-pointer section-video pe-0 w-100 py-4" : "cursor-pointer section-video w-100 py-4"} >
               <h1 className="revealUp large-title"
                 style={{ left: `10%`, bottom: `15%`, zIndex: 1 }}>
@@ -170,7 +180,7 @@ function Videopage() {
                     <div>
                       <a className="" onClick={(e) => setPlayVideo('none')} >
                         <Image id="exit-icon"
-                          className={`position-absolute start-50 translate-middle v-playbtn ${isHovering ? '' : "exit-icon"}`}
+                          className={`position-absolute  translate-middle v-playbtn ${isHovering ? '' : "exit-icon"}`}
                           onMouseEnter={() => setIsHovering(true)}
                           src={exitIcon} alt="exit icon..." />
                       </a>
@@ -179,7 +189,8 @@ function Videopage() {
                       onMouseEnter={() => setIsHovering(true)}
                       onMouseLeave={() => setIsHovering(false)}
                       className="image-video rounded-3 p-3"
-                      style={{ height: `${videoHeight}px` }} src={item.link + '?autoplay=1&mute=1&controls=1'}>
+                      style={{ height: `${videoHeight}px` }} src={item.link + '?autoplay=1&mute=0&controls=1'}
+                      allow="autoplay">
                     </iframe>
                     {/* <video
                       autoPlay
@@ -200,7 +211,7 @@ function Videopage() {
                           src={playIcon} alt="play icon..." />
                       </a>
                     </div>
-                    <Image src={item.path} id={item.id} className="bg-video rounded-3 p-3" style={{ width: `97%` }} />
+                    <Image src={item.path} className="bg-video rounded-3 p-3" style={{ width: `97%` }} />
                   </>
               }
               {/* <div>

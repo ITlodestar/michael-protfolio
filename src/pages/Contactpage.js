@@ -9,7 +9,7 @@ function Contactpage() {
     return (
         <div className="row pt-5 contactpage">
             <div className="col-12 col-md-6 text-center order-md-1" >
-                <Image src={contactimg} width={348} className="mb-3" />
+                <Image src={contactimg} width={348} className="mb-3 contact-img"/>
             </div>
             <div className="col-12 col-md-6 d-flex flex-column justify-content-between py-3" >
                 <div className="content">
