@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Image } from "react-bootstrap";
 
 import img1 from '../assets/img/Landing Page/Prada Spring_Summer _Thumbnail.jpg';
-import img2 from '../assets/img/Landing Page/j ember - Bargain Flights_Thumbnail.jpg';
+import img2 from '../assets/img/Landing Page/j ember - Bargain Flights_Thumbnail.png';
 import img3 from '../assets/img/Landing Page/This is FightCamp_Thumbnail.jpg';
 import img4 from '../assets/img/Landing Page/BYP_I AM BYP_Thumbnail.jpg';
 import img5 from '../assets/img/Landing Page/Jealous Thumbnail.jpg';

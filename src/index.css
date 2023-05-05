@@ -239,11 +239,7 @@ body {
   }
 }
 
-#bg-video {
-  animation: movevideo 4.8s infinite;
-  bottom: -48px;
-  right: 137px;
-}
+
 .image-video {
   width: 97%;
   position: relative;
@@ -310,8 +306,20 @@ body {
 .right-arrow:hover {
   opacity: 0.7;
 }
-
+ 
+.gallerphotos {
+  height: 500px;
+}
 @media (min-width: 768px) {
+  .contactpage {
+    padding-left: 20px;
+  }
+  #bg-video {
+    animation: movevideo 4.8s infinite;
+    bottom: -48px;
+    right: 137px;
+  }
+
   .assetList {
     overflow-x: visible;
   }
@@ -399,7 +407,6 @@ footer {
   #bg-video {
     animation: movevideo 5s linear infinite;
     bottom: 430px;
-    right: -150px;
   }
   .control-img {
     right: -20px !important;
@@ -410,5 +417,8 @@ footer {
   }
   .project-img {
     padding: 1rem 0 !important;
+  }
+  .gallerphotos {
+    height: 370px !important;
   }
 }

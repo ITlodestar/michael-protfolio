@@ -9,7 +9,7 @@ function Header() {
         }
     }, [])
     return (
-        <header className="container" style={{ maxHeight: 100 }}>
+        <header className="w-100" style={{ maxHeight: 100 }}>
             <div className="d-md-flex justify-content-between text-center" style={window.location.href === '/' ? { backgroundColor: "#000" } : { backgroundColor: "black" }}>
                 <div className="py-3 flex mt-auto mb-auto">
                     <a href="/" className={videocenter ? "text-decoration-none text-white videoheader" : "text-decoration-none text-white "} ><h1 className="logo">michael bloom</h1></a>

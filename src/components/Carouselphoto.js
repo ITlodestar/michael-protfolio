@@ -18,10 +18,9 @@ function Carouselphoto({ images, playicon, previewicon }) {
                 />
               </a>
           <Image
-            className="d-block w-100"
+            className="d-block w-100 gallerphotos"
             src={item.path}
-            alt="..."
-            style={{ height: 500 }}
+            alt="..." 
           />
         </Carousel.Item>
       ))}
