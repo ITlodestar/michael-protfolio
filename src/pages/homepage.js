@@ -78,7 +78,7 @@ const Imagesection = ({ Items, setPreview, preview, SetDisplayvideo }) => {
         data-aos="zoom-in"
         href={`#${item.author}`}
         style={window.innerWidth > 768 ? item.width : { width: '75%' }}>
-        {item.id === preview || window.innerWidth <= 425 ?
+        {item.id === preview || window.innerWidth <= 768 ?
           <video
             autoPlay
             muted
@@ -165,7 +165,9 @@ function Homepage() {
           onWheel={(e) => onScrollWheel(e)}>
           <div className="pt-3">
             <div className="d-md-block w-100 text-center title"
-              onMouseEnter={(e) => onScrollEnter(e)}>
+              onMouseEnter={(e) => onScrollEnter(e)}
+              onTouchStart={(e) => onScrollEnter(e)}
+              onTouchMove={(e) => onScrollEnter(e)}>
               <h3 className="pt-4">Producer</h3>
               <Titlesection Items={homedata.producer} SetDisplayvideo={SetDisplayvideo} />
               <h3 className="pt-4">Assistant Director</h3>

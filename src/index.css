@@ -199,6 +199,7 @@ body {
 @media (max-width: 768px) {
   header h1 {
     font-size: 14vw !important;
+    font-size: min(14vw, 40px);
   }
   .py-3 {
     padding-bottom: 0 !important;
@@ -213,7 +214,7 @@ body {
     padding: 0 !important;
   }
   .contact-img {
-    width: 100%;
+    width: 95%;
   }
 }
 
@@ -227,22 +228,21 @@ body {
 
 @keyframes movevideo {
   0% {
-    transform: translateY(100%);
+    bottom: -45px;
+  }
+  20% {
+    bottom: -45px;
   }
 
-  /* 20% {
-    transform: translateY(30%);
-  } */
-
   100% {
-    transform: translateY(0%);
+    bottom: 550px;
   }
 }
 
 #bg-video {
-  animation: movevideo 5s linear infinite;
-  bottom: 480px;
-  right: -90px;
+  animation: movevideo 4.8s infinite;
+  bottom: -48px;
+  right: 137px;
 }
 .image-video {
   width: 97%;

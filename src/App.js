@@ -29,7 +29,7 @@ function App() {
     setBallon(1);
     setTimeout(() => {
       setBallon(0);
-    }, 4000);
+    }, 4800);
   }
 
 
@@ -37,28 +37,29 @@ function App() {
     <div className='px-5 bg-animation position-relative' >
       <div className="position-relative">
         <Header />
-        <div style={{ paddingTop: 150 }}></div>
+        <div style={ window.innerWidth > 768 ? { paddingTop: 150 }:{ paddingTop: 120 }}></div>
         <RouterProvider router={AllRoute} />
       </div>
       {
         ballon === 1 ? (
           <div
-            style={{ zIndex: -1 }}
+            style={{ zIndex: 99999 }}
             className='position-fixed start-50-100 d-flex align-items-end footer'>
-            <video
+            {/* <video
               autoPlay
               muted
               loop
               className='position-fixed'
               id='bg-video'>
               <source src="/Balloon.mp4" type="video/mp4" />
-            </video>
+            </video> */}
+            <Image className='position-fixed' id='bg-video' src='/Ballon.gif' width='230px' height='230px' style={{zIndex: 99999}}/>
             { window.location.pathname === '/photos'? <></>: <h2 className='producernyc'>producer<br></br>nyc</h2> }
           </div>) : (
 
           <div
             className="position-fixed start-50-100 d-flex align-items-end footer"
-            style={{ zIndex: 99 }}>
+            style={{ zIndex: 99999 }}>
             <Image
               id='ballon'
               src={ballonimg}

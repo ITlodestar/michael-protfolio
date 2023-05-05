@@ -7,7 +7,7 @@ import iconLinkedin from '../assets/Icons/linkdin Icon white Desktop.png';
 import iconInstagram from '../assets/Icons/Insta Icon White Desktop.png';
 function Contactpage() {
     return (
-        <div className="row pt-5 contactpage">
+        <div className="row contactpage">
             <div className="col-12 col-md-6 text-center order-md-1" >
                 <Image src={contactimg} width={348} className="mb-3 contact-img"/>
             </div>
@@ -20,7 +20,7 @@ function Contactpage() {
                         Camera Department, Rental and G&E.
                     </p>
                     <p>Off set he enjoys writing, cooking for friends, hearing
-                        people out, and watching black and white flms.
+                        people out, and watching black and white films.
                     </p>
                     <p>You can reach him at  <a href="mailto:michael@michaelbloom.tv">michael@michaelbloom.tv</a></p>
                 </div>
